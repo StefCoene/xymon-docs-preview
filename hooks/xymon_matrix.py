@@ -175,8 +175,40 @@ def _changelog(base, limit):
     return "\n".join(rows)
 
 
+# Each icon is also a character, so its meaning survives copy/paste, plain text and screen readers.
+# Image sets paint over it with CSS; the "text" icon set shows it. "*" marks a recent change.
+GLYPH = {"green": "\u2713", "yellow": "\u25b2", "red": "\u2715", "purple": "\u25c6", "clear": "\u25cb"}
+DOT = re.compile(r'<span class="xm-dot (\w+)( recent)?"([^>]*)></span>')
+
+
+def _glyphs(markdown):
+    def repl(m):
+        status, recent, attrs = m.groups()
+        mark = '<span class="xm-r">*</span>' if recent else ""
+        return f'<span class="xm-dot {status}{recent or ""}"{attrs}>{GLYPH.get(status, "?")}{mark}</span>'
+
+    return DOT.sub(repl, markdown)
+
+
+# The wiki links to manual pages in the source tree (docs/<page>.html.DIST on GitHub). Send readers
+# to the published manual page instead.
+DIST = re.compile(
+    r"\[`?docs/([\w.-]+)\.html\.DIST`?\]"
+    r"\(https://github\.com/xymon-monitoring/xymon/blob/[\w.-]+/docs/\1\.html\.DIST\)( on GitHub)?"
+)
+
+
+def _dist_links(markdown, src_uri):
+    here = posixpath.dirname(src_uri) or "."
+    return DIST.sub(
+        lambda m: f"[read it in the manual]({posixpath.relpath(f'manual/dev/{m.group(1)}.html', here)})", markdown
+    )
+
+
 def on_page_markdown(markdown, page, config, files):
     markdown = _fix_links(markdown, page.file.src_uri)
+    markdown = _dist_links(markdown, page.file.src_uri)
+    markdown = _glyphs(markdown)
     base = os.path.dirname(config.config_file_path)
     markdown = CHANGELOG.sub(lambda m: _changelog(base, int(m.group(1) or 0)), markdown)
     if PLACEHOLDER not in markdown:
@@ -190,4 +222,4 @@ def on_page_markdown(markdown, page, config, files):
         + "".join(f'<span><span class="xm-dot {s}"></span>{counts[s]} {s}</span>' for s in SEVERITY[:4])
         + f"<span>built {today.isoformat()}</span></div>"
     )
-    return markdown.replace(PLACEHOLDER, table).replace(SUMMARY, summary)
+    return _glyphs(markdown.replace(PLACEHOLDER, table).replace(SUMMARY, summary))

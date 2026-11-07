@@ -1,9 +1,29 @@
-// Icon set ("classic" or "watcher"), remembered per visitor.
+// Icon set and blinking, remembered per visitor. Runs before the page renders to avoid a flash.
 (function () {
-  var set = "classic";
-  try { set = localStorage.getItem("xm-icons") || "classic"; } catch (e) {}
-  document.documentElement.setAttribute("data-icons", set);
+  var root = document.documentElement;
+  try {
+    root.setAttribute("data-icons", localStorage.getItem("xm-icons") || "classic");
+    root.setAttribute("data-blink", localStorage.getItem("xm-blink") || "off");
+  } catch (e) {
+    root.setAttribute("data-icons", "classic");
+    root.setAttribute("data-blink", "off");
+  }
 })();
+
+// A toolbar of buttons that sets one attribute on <html> and remembers it.
+function xmToggle(attr, key) {
+  var buttons = document.querySelectorAll(".xm-toolbar button[" + attr + "]");
+  var current = document.documentElement.getAttribute(attr);
+  buttons.forEach(function (b) {
+    b.setAttribute("aria-pressed", String(b.getAttribute(attr) === current));
+    b.addEventListener("click", function () {
+      var value = b.getAttribute(attr);
+      document.documentElement.setAttribute(attr, value);
+      try { localStorage.setItem(key, value); } catch (e) {}
+      buttons.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+    });
+  });
+}
 
 document$.subscribe(function () {
   // "Non-green only" view for the status matrix, like Xymon's critical view.
@@ -16,16 +36,6 @@ document$.subscribe(function () {
     });
   });
 
-  // Icon set switcher.
-  var icons = document.querySelectorAll(".xm-toolbar button[data-icons]");
-  var current = document.documentElement.getAttribute("data-icons");
-  icons.forEach(function (b) {
-    b.setAttribute("aria-pressed", String(b.getAttribute("data-icons") === current));
-    b.addEventListener("click", function () {
-      var set = b.getAttribute("data-icons");
-      document.documentElement.setAttribute("data-icons", set);
-      try { localStorage.setItem("xm-icons", set); } catch (e) {}
-      icons.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
-    });
-  });
+  xmToggle("data-icons", "xm-icons");
+  xmToggle("data-blink", "xm-blink");
 });

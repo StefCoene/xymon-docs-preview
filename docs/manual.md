@@ -15,6 +15,3 @@ The Xymon manual and man pages ship with every release in the [`docs/`](https://
 | Known issues | [4.3](manual/4.3/known-issues.html) | [dev](manual/dev/known-issues.html) |
 | Migrating from Big Brother | [4.3](manual/4.3/bb-to-xymon.html) | [dev](manual/dev/bb-to-xymon.html) |
 | **Man pages** | [4.3](manual/4.3/man-index.html) | [dev](manual/dev/man-index.html) |
-
-!!! note "Original formatting"
-    These pages are the HTML files from the source tree, served unchanged. Converting them to Markdown, so they share this site's layout and search, is one of the next steps.

@@ -50,11 +50,44 @@ body:has(.xm-summary[data-worst="red"]) { background-image: linear-gradient(180d
 .md-typeset table:not([class]) th { background: var(--xm-menu); color: var(--xm-dim); font-weight: 400; }
 .md-search__form { background: var(--xm-bg); border: 1px solid var(--xm-line); }
 
-/* Status icons: the classic Xymon GIFs; "-recent" marks a change in the last 30 days */
+/* Status icons. Every icon is a Unicode character (✓ ▲ ✕ ◆ ○, plus * for a recent change), so the
+   status survives copy/paste and screen readers. Image sets paint over the character; the "text" set
+   shows it, coloured by CSS. "-recent" marks a change in the last 30 days. */
 .xm-dot {
-  display: inline-block; width: 16px; height: 16px; vertical-align: middle;
+  display: inline-block; width: 16px; height: 16px; vertical-align: middle; overflow: hidden;
   background: center / 16px 16px no-repeat; image-rendering: pixelated;
+  color: transparent; font: 12px/16px Verdana, sans-serif; text-align: center; white-space: nowrap;
 }
+.xm-dot .xm-r { font-size: 0; }
+html[data-icons="vector"] .xm-dot, html[data-icons="accessible"] .xm-dot { image-rendering: auto; }
+
+/* Icon set: plain text. The character carries the meaning; size and alignment follow the text. */
+html[data-icons="text"] .xm-dot {
+  background-image: none !important; /* beats .xm-dot.<colour>.recent */
+  width: auto; height: auto; overflow: visible;
+  font-size: 1.15em; line-height: 1; font-weight: 700;
+}
+html[data-icons="text"] .xm-dot.green { color: var(--xm-green); }
+html[data-icons="text"] .xm-dot.yellow { color: var(--xm-yellow); }
+html[data-icons="text"] .xm-dot.red { color: var(--xm-red); }
+html[data-icons="text"] .xm-dot.purple { color: var(--xm-purple); }
+html[data-icons="text"] .xm-dot.clear { color: var(--xm-clear); }
+html[data-icons="text"] .xm-dot .xm-r { font-size: .6em; vertical-align: super; }
+html[data-icons="text"] .md-typeset .xm-matrix a { line-height: 1; border-radius: 0; }
+
+/* Icon set: "Christmas" gift boxes by Steve Dobbs (2003, deadcat.net gifts.tar.gz). One box per colour;
+   a recent change gets a glow instead of a separate image. */
+html[data-icons="christmas"] .xm-dot.green, html[data-icons="christmas"] .xm-dot.green.recent { background-image: url("../images/status/christmas/green.gif"); }
+html[data-icons="christmas"] .xm-dot.yellow, html[data-icons="christmas"] .xm-dot.yellow.recent { background-image: url("../images/status/christmas/yellow.gif"); }
+html[data-icons="christmas"] .xm-dot.red, html[data-icons="christmas"] .xm-dot.red.recent { background-image: url("../images/status/christmas/red.gif"); }
+html[data-icons="christmas"] .xm-dot.purple, html[data-icons="christmas"] .xm-dot.purple.recent { background-image: url("../images/status/christmas/purple.gif"); }
+html[data-icons="christmas"] .xm-dot.clear, html[data-icons="christmas"] .xm-dot.clear.recent { background-image: url("../images/status/christmas/clear.gif"); }
+html[data-icons="christmas"] .xm-dot.recent, html[data-icons="christmas"] .xm-dot.recent.recent { filter: drop-shadow(0 0 3px #fff6b0); overflow: visible; }
+
+/* Blinking is off by default (as in Debian's Xymon theme) and only marks a recent change. */
+@keyframes xm-blink { 50% { opacity: .25; } }
+html[data-blink="on"] .xm-dot.recent { animation: xm-blink 1.2s steps(1, end) infinite; }
+@media (prefers-reduced-motion: reduce) { html[data-blink="on"] .xm-dot.recent { animation: none; } }
 .xm-dot.green { background-image: url("../images/status/green.gif"); }
 .xm-dot.yellow { background-image: url("../images/status/yellow.gif"); }
 .xm-dot.red { background-image: url("../images/status/red.gif"); }
@@ -78,27 +111,27 @@ html[data-icons="watcher"] .xm-dot.purple.recent { background-image: url("../ima
 html[data-icons="watcher"] .xm-dot.clear { background-image: url("../images/status/watcher/clear.gif"); }
 html[data-icons="watcher"] .xm-dot.clear.recent { background-image: url("../images/status/watcher/clear-recent.gif"); }
 /* Icon set: "Vector" by Stef Coene */
-html[data-icons="vector"] .xm-dot.green { background-image: url("../images/status/vector/green.gif"); }
-html[data-icons="vector"] .xm-dot.green.recent { background-image: url("../images/status/vector/green-recent.gif"); }
-html[data-icons="vector"] .xm-dot.yellow { background-image: url("../images/status/vector/yellow.gif"); }
-html[data-icons="vector"] .xm-dot.yellow.recent { background-image: url("../images/status/vector/yellow-recent.gif"); }
-html[data-icons="vector"] .xm-dot.red { background-image: url("../images/status/vector/red.gif"); }
-html[data-icons="vector"] .xm-dot.red.recent { background-image: url("../images/status/vector/red-recent.gif"); }
-html[data-icons="vector"] .xm-dot.purple { background-image: url("../images/status/vector/purple.gif"); }
-html[data-icons="vector"] .xm-dot.purple.recent { background-image: url("../images/status/vector/purple-recent.gif"); }
-html[data-icons="vector"] .xm-dot.clear { background-image: url("../images/status/vector/clear.gif"); }
-html[data-icons="vector"] .xm-dot.clear.recent { background-image: url("../images/status/vector/clear-recent.gif"); }
+html[data-icons="vector"] .xm-dot.green { background-image: url("../images/status/vector/green.svg"); }
+html[data-icons="vector"] .xm-dot.green.recent { background-image: url("../images/status/vector/green-recent.svg"); }
+html[data-icons="vector"] .xm-dot.yellow { background-image: url("../images/status/vector/yellow.svg"); }
+html[data-icons="vector"] .xm-dot.yellow.recent { background-image: url("../images/status/vector/yellow-recent.svg"); }
+html[data-icons="vector"] .xm-dot.red { background-image: url("../images/status/vector/red.svg"); }
+html[data-icons="vector"] .xm-dot.red.recent { background-image: url("../images/status/vector/red-recent.svg"); }
+html[data-icons="vector"] .xm-dot.purple { background-image: url("../images/status/vector/purple.svg"); }
+html[data-icons="vector"] .xm-dot.purple.recent { background-image: url("../images/status/vector/purple-recent.svg"); }
+html[data-icons="vector"] .xm-dot.clear { background-image: url("../images/status/vector/clear.svg"); }
+html[data-icons="vector"] .xm-dot.clear.recent { background-image: url("../images/status/vector/clear-recent.svg"); }
 /* Icon set: "Accessible" by Stef Coene: shape and symbol per status, colour-blind safe */
-html[data-icons="accessible"] .xm-dot.green { background-image: url("../images/status/accessible/green.gif"); }
-html[data-icons="accessible"] .xm-dot.green.recent { background-image: url("../images/status/accessible/green-recent.gif"); }
-html[data-icons="accessible"] .xm-dot.yellow { background-image: url("../images/status/accessible/yellow.gif"); }
-html[data-icons="accessible"] .xm-dot.yellow.recent { background-image: url("../images/status/accessible/yellow-recent.gif"); }
-html[data-icons="accessible"] .xm-dot.red { background-image: url("../images/status/accessible/red.gif"); }
-html[data-icons="accessible"] .xm-dot.red.recent { background-image: url("../images/status/accessible/red-recent.gif"); }
-html[data-icons="accessible"] .xm-dot.purple { background-image: url("../images/status/accessible/purple.gif"); }
-html[data-icons="accessible"] .xm-dot.purple.recent { background-image: url("../images/status/accessible/purple-recent.gif"); }
-html[data-icons="accessible"] .xm-dot.clear { background-image: url("../images/status/accessible/clear.gif"); }
-html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../images/status/accessible/clear-recent.gif"); }
+html[data-icons="accessible"] .xm-dot.green { background-image: url("../images/status/accessible/green.svg"); }
+html[data-icons="accessible"] .xm-dot.green.recent { background-image: url("../images/status/accessible/green-recent.svg"); }
+html[data-icons="accessible"] .xm-dot.yellow { background-image: url("../images/status/accessible/yellow.svg"); }
+html[data-icons="accessible"] .xm-dot.yellow.recent { background-image: url("../images/status/accessible/yellow-recent.svg"); }
+html[data-icons="accessible"] .xm-dot.red { background-image: url("../images/status/accessible/red.svg"); }
+html[data-icons="accessible"] .xm-dot.red.recent { background-image: url("../images/status/accessible/red-recent.svg"); }
+html[data-icons="accessible"] .xm-dot.purple { background-image: url("../images/status/accessible/purple.svg"); }
+html[data-icons="accessible"] .xm-dot.purple.recent { background-image: url("../images/status/accessible/purple-recent.svg"); }
+html[data-icons="accessible"] .xm-dot.clear { background-image: url("../images/status/accessible/clear.svg"); }
+html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../images/status/accessible/clear-recent.svg"); }
 
 /* Matrix */
 .xm-toolbar { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; font-size: .65rem; color: var(--xm-dim); margin: .6rem 0; }
