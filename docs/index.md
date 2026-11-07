@@ -26,6 +26,7 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   <button type="button" data-icons="accessible" aria-pressed="false">accessible</button>
   <button type="button" data-icons="text" aria-pressed="false">text</button>
   <button type="button" data-icons="christmas" aria-pressed="false">christmas</button>
+  <button type="button" data-icons="gifts" aria-pressed="false">gifts</button>
   <span>· Blink recent changes:
   <button type="button" data-blink="off" aria-pressed="true">off</button>
   <button type="button" data-blink="on" aria-pressed="false">on</button></span>

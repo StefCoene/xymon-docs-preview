@@ -75,14 +75,28 @@ html[data-icons="text"] .xm-dot.clear { color: var(--xm-clear); }
 html[data-icons="text"] .xm-dot .xm-r { font-size: .6em; vertical-align: super; }
 html[data-icons="text"] .md-typeset .xm-matrix a { line-height: 1; border-radius: 0; }
 
-/* Icon set: "Christmas" gift boxes by Steve Dobbs (2003, deadcat.net gifts.tar.gz). One box per colour;
+/* Icon set: "Christmas" by Henrik Storner (2007, xymon.com/misc/Christmas.zip): baubles, and a tree,
+   poinsettia and bell for a recent change. No purple or clear icons: the classic ones show there. */
+html[data-icons="christmas"] .xm-dot.green { background-image: url("../images/status/christmas/green.gif"); }
+html[data-icons="christmas"] .xm-dot.green.recent { background-image: url("../images/status/christmas/green-recent.gif"); }
+html[data-icons="christmas"] .xm-dot.yellow { background-image: url("../images/status/christmas/yellow.gif"); }
+html[data-icons="christmas"] .xm-dot.yellow.recent { background-image: url("../images/status/christmas/yellow-recent.gif"); }
+html[data-icons="christmas"] .xm-dot.red { background-image: url("../images/status/christmas/red.gif"); }
+html[data-icons="christmas"] .xm-dot.red.recent { background-image: url("../images/status/christmas/red-recent.gif"); }
+html[data-icons="christmas"] .xm-dot { image-rendering: auto; }
+html[data-icons="christmas"] body, html[data-icons="christmas"] body:has(.xm-summary) {
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
+    var(--xm-bg) url("../images/status/christmas/bkg.gif") no-repeat right 4rem / min(640px, 70vw) auto;
+}
+
+/* Icon set: "Gifts" by Steve Dobbs (2003, deadcat.net gifts.tar.gz). One box per colour;
    a recent change gets a glow instead of a separate image. */
-html[data-icons="christmas"] .xm-dot.green, html[data-icons="christmas"] .xm-dot.green.recent { background-image: url("../images/status/christmas/green.gif"); }
-html[data-icons="christmas"] .xm-dot.yellow, html[data-icons="christmas"] .xm-dot.yellow.recent { background-image: url("../images/status/christmas/yellow.gif"); }
-html[data-icons="christmas"] .xm-dot.red, html[data-icons="christmas"] .xm-dot.red.recent { background-image: url("../images/status/christmas/red.gif"); }
-html[data-icons="christmas"] .xm-dot.purple, html[data-icons="christmas"] .xm-dot.purple.recent { background-image: url("../images/status/christmas/purple.gif"); }
-html[data-icons="christmas"] .xm-dot.clear, html[data-icons="christmas"] .xm-dot.clear.recent { background-image: url("../images/status/christmas/clear.gif"); }
-html[data-icons="christmas"] .xm-dot.recent, html[data-icons="christmas"] .xm-dot.recent.recent { filter: drop-shadow(0 0 3px #fff6b0); overflow: visible; }
+html[data-icons="gifts"] .xm-dot.green, html[data-icons="gifts"] .xm-dot.green.recent { background-image: url("../images/status/gifts/green.gif"); }
+html[data-icons="gifts"] .xm-dot.yellow, html[data-icons="gifts"] .xm-dot.yellow.recent { background-image: url("../images/status/gifts/yellow.gif"); }
+html[data-icons="gifts"] .xm-dot.red, html[data-icons="gifts"] .xm-dot.red.recent { background-image: url("../images/status/gifts/red.gif"); }
+html[data-icons="gifts"] .xm-dot.purple, html[data-icons="gifts"] .xm-dot.purple.recent { background-image: url("../images/status/gifts/purple.gif"); }
+html[data-icons="gifts"] .xm-dot.clear, html[data-icons="gifts"] .xm-dot.clear.recent { background-image: url("../images/status/gifts/clear.gif"); }
+html[data-icons="gifts"] .xm-dot.recent { filter: drop-shadow(0 0 3px #fff6b0); overflow: visible; }
 
 /* Blinking is off by default (as in Debian's Xymon theme) and only marks a recent change. */
 @keyframes xm-blink { 50% { opacity: .25; } }

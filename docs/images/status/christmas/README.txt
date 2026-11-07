@@ -1,9 +1,4 @@
-put these pics in your $BBHOME/www/gifs (after backing up that dir, of course.
-
-I created these one day to try to get my grinch self into the Christmas spirit.  It kinda worked.
-
-If you like them, drop me a line and tell me.  
-
-Steve Dobbs
-steve.dobbs@networktelephone.net
-
+Christmas icons by Henrik Storner, the author of Xymon (2007; page background 2008).
+Source: https://www.xymon.com/misc/Christmas.zip (files unchanged; the six identical
+bkg-<colour>.gif backgrounds are kept once, as bkg.gif).
+There are no purple or clear icons in the set: the site shows the classic ones there.
