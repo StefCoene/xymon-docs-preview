@@ -39,7 +39,8 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
   `XYMONSKIN` and `IMAGEFILETYPE`. A complete set has every colour (green, yellow, red, purple, blue,
   clear) as `<colour>`, `<colour>-recent` and `<colour>-ack` (no `clear-ack`), plus `unknown`,
   `unknown-recent`, `arrow`, `zoom`, `bkg-<colour>`, the `favicon-*.ico` files and `xymonbody.css`
-  from `xymond/wwwfiles/gifs`. With `IMAGEFILETYPE=svg` the other images are requested as `.svg` too.
+  from `xymond/wwwfiles/gifs`. `IMAGEFILETYPE` also applies to `arrow` and `zoom` (so an SVG set needs
+  `arrow.svg` and `zoom.svg`); the `bkg-*.gif` backgrounds are named in `xymonbody.css`, so a skin can keep them.
 - [ ] **Complete the alternative sets as Xymon skins** and offer them as optional downloads on that page.
   Watcher is nearly complete in its original form (blue, every `-ack`, `unknown`, `arrow`, `zoom`; the
   preview only uses part of it). The SVG sets have blue and `-ack` in dig-bollen but not here yet, and no
