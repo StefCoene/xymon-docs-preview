@@ -29,6 +29,15 @@ blinking: the source changed in the last 30 days</pre>
 
 So the grid doubles as a to-do list. Switch to **non-green only** to see what needs work.
 
+## Status icons
+
+Two icon sets are available; switch between them above the grid on the home page.
+
+| Set | Made by |
+|---|---|
+| Classic | Stef Coene |
+| Watcher | Steven Aiello (2007–2008), from the Xymonton add-on [sa_icons](https://wiki.xymonton.org/doku.php/addons:sa_icons). One shape per colour, so the grid also works for colour-blind readers. His [README](images/status/watcher/README.txt): "Use them as you like". |
+
 ## Built with
 
 [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), hosted on GitHub Pages. Source: [StefCoene/xymon-docs-preview](https://github.com/StefCoene/xymon-docs-preview).

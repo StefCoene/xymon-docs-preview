@@ -27,6 +27,7 @@ The mailing list has been the main place for questions and discussion since 2005
 | [Wikibooks: System Monitoring with Xymon](https://en.wikibooks.org/wiki/System_Monitoring_with_Xymon) | Administration guide and HOWTOs |
 | [Wikipedia: Xymon](https://en.wikipedia.org/wiki/Xymon) | Overview and history |
 | [Xymonton: developer tutorial](https://wiki.xymonton.org/doku.php/tutorials:devel) | Writing your own tests and extensions |
+| [Xymonton: sa_icons](https://wiki.xymonton.org/doku.php/addons:sa_icons) | Alternative "Watcher" status icons by Steven Aiello |
 
 ## History
 

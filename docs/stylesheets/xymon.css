@@ -66,6 +66,18 @@ body:has(.xm-summary[data-worst="red"]) { background-image: linear-gradient(180d
 .xm-dot.purple.recent { background-image: url("../images/status/purple-recent.gif"); }
 .xm-dot.clear.recent { background-image: url("../images/status/clear-recent.gif"); }
 
+/* Alternative icon set: "Watcher" by Steven Aiello (Xymonton addon sa_icons), one shape per colour */
+html[data-icons="watcher"] .xm-dot.green { background-image: url("../images/status/watcher/green.gif"); }
+html[data-icons="watcher"] .xm-dot.green.recent { background-image: url("../images/status/watcher/green-recent.gif"); }
+html[data-icons="watcher"] .xm-dot.yellow { background-image: url("../images/status/watcher/yellow.gif"); }
+html[data-icons="watcher"] .xm-dot.yellow.recent { background-image: url("../images/status/watcher/yellow-recent.gif"); }
+html[data-icons="watcher"] .xm-dot.red { background-image: url("../images/status/watcher/red.gif"); }
+html[data-icons="watcher"] .xm-dot.red.recent { background-image: url("../images/status/watcher/red-recent.gif"); }
+html[data-icons="watcher"] .xm-dot.purple { background-image: url("../images/status/watcher/purple.gif"); }
+html[data-icons="watcher"] .xm-dot.purple.recent { background-image: url("../images/status/watcher/purple-recent.gif"); }
+html[data-icons="watcher"] .xm-dot.clear { background-image: url("../images/status/watcher/clear.gif"); }
+html[data-icons="watcher"] .xm-dot.clear.recent { background-image: url("../images/status/watcher/clear-recent.gif"); }
+
 /* Matrix */
 .xm-toolbar { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; font-size: .65rem; color: var(--xm-dim); margin: .6rem 0; }
 .xm-toolbar button {

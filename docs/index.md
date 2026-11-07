@@ -18,6 +18,11 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   <button type="button" data-view="problems" aria-pressed="false">non-green only</button>
   <span>· Version: <a href="manual/4.3/install.html">4.3</a> | <strong>dev</strong></span>
 </div>
+<div class="xm-toolbar" role="group" aria-label="Icon set">
+  Icons:
+  <button type="button" data-icons="classic" aria-pressed="true">classic</button>
+  <button type="button" data-icons="watcher" aria-pressed="false">watcher</button>
+</div>
 
 <!-- xymon-matrix -->
 
