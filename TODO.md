@@ -24,6 +24,31 @@ Open points for the documentation site. Feedback and pull requests welcome.
 - [ ] Versioned docs with `mike` (4.3 / dev), instead of two copied directories.
 - [ ] Custom domain (e.g. `docs.xymon.com`): who manages DNS for xymon.com?
 
+## Icon sets
+
+Xymon can already switch icon sets per installation, without code changes:
+`XYMONSKIN` (documented in `xymonserver.cfg(5)`) sets the directory the icons load from,
+`IMAGEFILETYPE` (default `gif`, `lib/environ.c` and `lib/color.c`; **undocumented**) sets the file
+extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` / `DOTHEIGHT` set the size.
+
+- [ ] **Decide what the docs show.** The preview offers several icon sets per viewer, which Xymon itself
+  cannot do. Keep only the classic icons in the docs, or keep the sets and present them as optional
+  skins (see below)? Discuss with the other developers.
+- [ ] **Document `IMAGEFILETYPE`** in `xymonserver.cfg(5)` (pull request on `xymon`).
+- [ ] **Docs page "Using another icon set"**: which files a skin directory needs, and how to set
+  `XYMONSKIN` and `IMAGEFILETYPE`. A complete set has every colour (green, yellow, red, purple, blue,
+  clear) as `<colour>`, `<colour>-recent` and `<colour>-ack` (no `clear-ack`), plus `unknown`,
+  `unknown-recent`, `arrow`, `zoom`, `bkg-<colour>`, the `favicon-*.ico` files and `xymonbody.css`
+  from `xymond/wwwfiles/gifs`. With `IMAGEFILETYPE=svg` the other images are requested as `.svg` too.
+- [ ] **Complete the alternative sets as Xymon skins** and offer them as optional downloads on that page.
+  Watcher is nearly complete in its original form (blue, every `-ack`, `unknown`, `arrow`, `zoom`; the
+  preview only uses part of it). The SVG sets have blue and `-ack` in dig-bollen but not here yet, and no
+  `unknown` or other files. Christmas lacks purple, clear and `-ack`; Gifts lacks `-recent` and `-ack`.
+- [ ] **Animation in SVG sets**: Xymon has no Animate option, so an SVG set that should move needs the
+  animation inside the SVG file (CSS or SMIL), only in the yellow, red and purple icons.
+- [ ] Possible Xymon features, only if wanted: a per-viewer choice of icon set (the preview does it in the
+  browser), and icons as text characters (Xymon writes `<img>` tags today).
+
 ## Community
 
 - [ ] Ask the Xymonton admins whether their content may be migrated.
