@@ -7,6 +7,8 @@ A Xymon client runs on each monitored host and reports to the server. Pick the o
 | Unix, Linux, BSD, macOS | Built-in client from the Xymon source tree | [Client / server communication](guides/client-server-communication.md) · [xymonclient.cfg(5)](manual/dev/manpages/man5/xymonclient.cfg.5.html) · [client-local.cfg(5)](manual/dev/manpages/man5/client-local.cfg.5.html) |
 | Windows | PowerShell client (`xymon-client-windows-powershell`) | [PowerShell client](clients/windows-powershell/index.md) |
 | Windows | MrBig | [xymon-mrbig/MrBig](https://github.com/xymon-mrbig/MrBig) |
+| Windows (legacy) | BBWin, native client for Big Brother and Xymon | [bbwin.sourceforge.net](https://bbwin.sourceforge.net/) |
+| Windows (legacy) | WinPSClient, the original PowerShell client | [SVN sandbox](https://github.com/svn2github/xymon/tree/master/sandbox/WinPSClient/) |
 | Any (Go) | go-xymon-client | [ArthurHlt/go-xymon-client](https://github.com/ArthurHlt/go-xymon-client) |
 | Any (Python) | pyxymon, python-xymon | [madrisan/pyxymon](https://github.com/madrisan/pyxymon) · [skurfer/python-xymon](https://github.com/skurfer/python-xymon) |
 | Network devices | Devmon (SNMP) | [bonomani/devmon](https://github.com/bonomani/devmon) |

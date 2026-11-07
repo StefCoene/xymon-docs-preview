@@ -26,6 +26,16 @@ The mailing list has been the main place for questions and discussion since 2005
 | [Xymonton wiki](https://wiki.xymonton.org/) | About 130 pages: monitors, add-ons, alert scripts, tutorials, Devmon |
 | [Wikibooks: System Monitoring with Xymon](https://en.wikibooks.org/wiki/System_Monitoring_with_Xymon) | Administration guide and HOWTOs |
 | [Wikipedia: Xymon](https://en.wikipedia.org/wiki/Xymon) | Overview and history |
+| [Xymonton: developer tutorial](https://wiki.xymonton.org/doku.php/tutorials:devel) | Writing your own tests and extensions |
+
+## History
+
+| Source | Content |
+|---|---|
+| ["We sold out..." (2012)](http://blog.maclawran.ca/?p=16) | Big Brother's creator on Quest ending Big Brother development |
+| [hobbitmon.sourceforge.net](https://hobbitmon.sourceforge.net/) | The SourceForge project from the Hobbit era, before 2009 |
+| [Linuxforum 2007](https://lists.xymon.com/archive/2007-February/012068.html) | Henrik Størner presents Hobbit in Copenhagen |
+| [deadcat.net on the Wayback Machine](https://web.archive.org/web/2009/http://www.deadcat.net/) | Archived Big Brother extensions |
 | [Live demo](https://www.xymon.com/) | A running Xymon server |
 | [Server Fault](https://serverfault.com/questions/tagged/xymon), [Stack Overflow](https://stackoverflow.com/questions/tagged/xymon) | Questions tagged `xymon` (older ones: `hobbitmon`) |
 | [Debian man pages](https://manpages.debian.org/xymon) | Man pages per Debian release |
