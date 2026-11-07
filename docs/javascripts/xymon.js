@@ -26,16 +26,6 @@ function xmToggle(attr, key) {
 }
 
 document$.subscribe(function () {
-  // "Non-green only" view for the status matrix, like Xymon's critical view.
-  var table = document.querySelector(".xm-matrix");
-  var views = document.querySelectorAll(".xm-toolbar button[data-view]");
-  views.forEach(function (b) {
-    b.addEventListener("click", function () {
-      if (table) table.classList.toggle("only-problems", b.getAttribute("data-view") === "problems");
-      views.forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
-    });
-  });
-
   xmToggle("data-icons", "xm-icons");
   xmToggle("data-anim", "xm-anim");
 });

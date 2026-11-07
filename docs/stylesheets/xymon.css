@@ -183,7 +183,6 @@ html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../i
 .md-typeset .xm-matrix tbody tr:not(.xm-grp):hover td { background: #1a2a1a; }
 .md-typeset .xm-matrix a { display: inline-block; line-height: 0; border-radius: 50%; }
 .md-typeset .xm-matrix a:focus-visible { outline: 2px solid var(--xm-link); outline-offset: 3px; }
-.xm-matrix.only-problems tr[data-worst="green"], .xm-matrix.only-problems tr[data-worst="clear"] { display: none; }
 .xm-legend { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font-size: .62rem; color: var(--xm-dim); border-top: 1px solid var(--xm-line); padding-top: .6rem; margin-top: .6rem; }
 .xm-legend span { display: inline-flex; align-items: center; gap: .35rem; }
 

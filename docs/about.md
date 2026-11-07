@@ -27,7 +27,7 @@ purple  external content that has not been migrated here
 clear   no page of this type for this topic
 recent:   the source changed in the last 30 days</pre>
 
-So the grid doubles as a to-do list. Switch to **non-green only** to see what needs work.
+So the grid doubles as a to-do list: every icon that is not green is work to do.
 
 ## Status icons
 
