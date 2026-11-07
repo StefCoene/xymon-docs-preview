@@ -27,12 +27,15 @@ The mailing list has been the main place for questions and discussion since 2005
 | [Wikibooks: System Monitoring with Xymon](https://en.wikibooks.org/wiki/System_Monitoring_with_Xymon) | Administration guide and HOWTOs |
 | [Wikipedia: Xymon](https://en.wikipedia.org/wiki/Xymon) | Overview and history |
 | [Live demo](https://www.xymon.com/) | A running Xymon server |
+| [Server Fault](https://serverfault.com/questions/tagged/xymon), [Stack Overflow](https://stackoverflow.com/questions/tagged/xymon) | Questions tagged `xymon` (older ones: `hobbitmon`) |
+| [Debian man pages](https://manpages.debian.org/xymon) | Man pages per Debian release |
 
 ## Tools and integrations
 
 | Project | What it is |
 |---|---|
 | [Devmon](https://github.com/bonomani/devmon) | SNMP monitoring for Xymon |
+| [xymon-rclient](https://tools.rebel-it.com.au/xymon-rclient/) | Agentless client over SSH |
 | [Xymondash](https://github.com/daduke/Xymondash) | Alternative dashboard |
 | [xymon-nginx](https://github.com/ZeWaren/xymon-nginx), [xymon-mysql-counters](https://github.com/ZeWaren/xymon-mysql-counters) | Checks |
 | [doktoil-makresh/xymon-plugins](https://github.com/doktoil-makresh/xymon-plugins) | Plugins |

@@ -22,3 +22,9 @@ The current stable release is **4.3.31** (6 November 2026). Version 4.4 is in de
 | macOS | [Homebrew tap](https://github.com/xymon-monitoring/homebrew-xymon) · MacPorts | Server and client |
 | Containers | [deweysasser/docker-xymon](https://github.com/deweysasser/docker-xymon) | Community image, not official |
 | Ansible | [ipr-cnrs/xymon](https://github.com/ipr-cnrs/xymon) · [BertRaeymaekers/ansible-xymon](https://github.com/BertRaeymaekers/ansible-xymon) | Community roles |
+| Puppet | [dodevops/xymon](https://forge.puppet.com/modules/dodevops/xymon) · [gardouille/xymon](https://forge.puppet.com/gardouille/xymon) | Community modules |
+| Chef | [xymon cookbook](https://supermarket.chef.io/cookbooks/xymon) | Old, version 0.1.0 |
+
+## Which version does my distribution ship?
+
+[Repology](https://repology.org/project/xymon/versions) tracks Xymon in about 40 package repositories. Most still ship 4.3.30; FreeBSD already has 4.3.31.
