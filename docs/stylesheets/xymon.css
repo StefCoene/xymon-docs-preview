@@ -77,6 +77,28 @@ html[data-icons="watcher"] .xm-dot.purple { background-image: url("../images/sta
 html[data-icons="watcher"] .xm-dot.purple.recent { background-image: url("../images/status/watcher/purple-recent.gif"); }
 html[data-icons="watcher"] .xm-dot.clear { background-image: url("../images/status/watcher/clear.gif"); }
 html[data-icons="watcher"] .xm-dot.clear.recent { background-image: url("../images/status/watcher/clear-recent.gif"); }
+/* Icon set: "Vector" by Stef Coene */
+html[data-icons="vector"] .xm-dot.green { background-image: url("../images/status/vector/green.gif"); }
+html[data-icons="vector"] .xm-dot.green.recent { background-image: url("../images/status/vector/green-recent.gif"); }
+html[data-icons="vector"] .xm-dot.yellow { background-image: url("../images/status/vector/yellow.gif"); }
+html[data-icons="vector"] .xm-dot.yellow.recent { background-image: url("../images/status/vector/yellow-recent.gif"); }
+html[data-icons="vector"] .xm-dot.red { background-image: url("../images/status/vector/red.gif"); }
+html[data-icons="vector"] .xm-dot.red.recent { background-image: url("../images/status/vector/red-recent.gif"); }
+html[data-icons="vector"] .xm-dot.purple { background-image: url("../images/status/vector/purple.gif"); }
+html[data-icons="vector"] .xm-dot.purple.recent { background-image: url("../images/status/vector/purple-recent.gif"); }
+html[data-icons="vector"] .xm-dot.clear { background-image: url("../images/status/vector/clear.gif"); }
+html[data-icons="vector"] .xm-dot.clear.recent { background-image: url("../images/status/vector/clear-recent.gif"); }
+/* Icon set: "Accessible" by Stef Coene: shape and symbol per status, colour-blind safe */
+html[data-icons="accessible"] .xm-dot.green { background-image: url("../images/status/accessible/green.gif"); }
+html[data-icons="accessible"] .xm-dot.green.recent { background-image: url("../images/status/accessible/green-recent.gif"); }
+html[data-icons="accessible"] .xm-dot.yellow { background-image: url("../images/status/accessible/yellow.gif"); }
+html[data-icons="accessible"] .xm-dot.yellow.recent { background-image: url("../images/status/accessible/yellow-recent.gif"); }
+html[data-icons="accessible"] .xm-dot.red { background-image: url("../images/status/accessible/red.gif"); }
+html[data-icons="accessible"] .xm-dot.red.recent { background-image: url("../images/status/accessible/red-recent.gif"); }
+html[data-icons="accessible"] .xm-dot.purple { background-image: url("../images/status/accessible/purple.gif"); }
+html[data-icons="accessible"] .xm-dot.purple.recent { background-image: url("../images/status/accessible/purple-recent.gif"); }
+html[data-icons="accessible"] .xm-dot.clear { background-image: url("../images/status/accessible/clear.gif"); }
+html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../images/status/accessible/clear-recent.gif"); }
 
 /* Matrix */
 .xm-toolbar { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; font-size: .65rem; color: var(--xm-dim); margin: .6rem 0; }

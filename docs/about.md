@@ -31,11 +31,13 @@ So the grid doubles as a to-do list. Switch to **non-green only** to see what ne
 
 ## Status icons
 
-Two icon sets are available; switch between them above the grid on the home page.
+Four icon sets are available; switch between them above the grid on the home page. Your choice is remembered in your browser.
 
 | Set | Made by |
 |---|---|
-| Classic | Stef Coene |
+| Classic | Stef Coene. Pixel icons in the traditional Xymon style: symbols for a status, faces for a recent change. |
+| Vector | Stef Coene. Soft, rounded versions of the classic shapes. |
+| Accessible | Stef Coene. A distinct shape and symbol for each status, in colour-blind-safe colours; a recent change is shown filled, an older one hollow. |
 | Watcher | Steven Aiello (2007–2008), from the Xymonton add-on [sa_icons](https://wiki.xymonton.org/doku.php/addons:sa_icons). One shape per colour, so the grid also works for colour-blind readers. His [README](images/status/watcher/README.txt): "Use them as you like". |
 
 ## Built with

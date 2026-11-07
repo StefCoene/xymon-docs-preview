@@ -22,6 +22,8 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   Icons:
   <button type="button" data-icons="classic" aria-pressed="true">classic</button>
   <button type="button" data-icons="watcher" aria-pressed="false">watcher</button>
+  <button type="button" data-icons="vector" aria-pressed="false">vector</button>
+  <button type="button" data-icons="accessible" aria-pressed="false">accessible</button>
 </div>
 
 <!-- xymon-matrix -->
