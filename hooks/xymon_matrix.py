@@ -12,6 +12,7 @@ A cell whose source changed in the last RECENT_DAYS days gets the "recent" marke
 """
 
 import datetime as dt
+import hashlib
 import html
 import json
 import os
@@ -29,8 +30,23 @@ SEVERITY = ["red", "purple", "yellow", "green", "clear"]
 _state = {"matrix": None, "dates": {}, "files": set()}
 
 
+def _bust(entry, docs_dir):
+    """Append ?v=<content hash> so browsers never pair new pages with a cached old script or stylesheet."""
+    path = str(entry).split("?")[0]
+    full = os.path.join(docs_dir, path)
+    if not os.path.exists(full):
+        return entry
+    digest = hashlib.sha1(open(full, "rb").read()).hexdigest()[:10]
+    if hasattr(entry, "path"):
+        entry.path = f"{path}?v={digest}"
+        return entry
+    return f"{path}?v={digest}"
+
+
 def on_config(config):
     base = os.path.dirname(config.config_file_path)
+    config["extra_css"] = [_bust(e, config["docs_dir"]) for e in config["extra_css"]]
+    config["extra_javascript"] = [_bust(e, config["docs_dir"]) for e in config["extra_javascript"]]
     with open(os.path.join(base, "matrix.yml"), encoding="utf-8") as fh:
         _state["matrix"] = yaml.safe_load(fh)
     dates = os.path.join(base, ".sources", "dates.json")
