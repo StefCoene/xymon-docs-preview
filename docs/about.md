@@ -33,7 +33,7 @@ So the grid doubles as a to-do list. Switch to **non-green only** to see what ne
 
 Every icon is a character as well as a picture: ✓ green, ▲ yellow, ✕ red, ◆ purple, ○ clear, followed by `*` when the source changed in the last 30 days. Copy the grid into a mail or a text file and the statuses come along; screen readers read them too. An icon set only changes how that character looks, so a new theme (like Henrik's Christmas set below) is a few lines of CSS and some images.
 
-Switch sets above the grid on the home page. Your choice is remembered in your browser. Icons do not blink, unless you turn on **Blink recent changes**; even then only recent changes blink, and not at all if your system asks for reduced motion.
+Switch sets above the grid on the home page. Your choice is remembered in your browser. Icons do not blink, unless you turn on **Blink recent changes**. Then only recent changes move: the pixel sets blink, the Vector and Accessible sets pulse with a glow in the status colour.
 
 | Set | Made by |
 |---|---|

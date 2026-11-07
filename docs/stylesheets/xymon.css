@@ -98,10 +98,16 @@ html[data-icons="gifts"] .xm-dot.purple, html[data-icons="gifts"] .xm-dot.purple
 html[data-icons="gifts"] .xm-dot.clear, html[data-icons="gifts"] .xm-dot.clear.recent { background-image: url("../images/status/gifts/clear.gif"); }
 html[data-icons="gifts"] .xm-dot.recent { filter: drop-shadow(0 0 3px #fff6b0); overflow: visible; }
 
-/* Blinking is off by default (as in Debian's Xymon theme) and only marks a recent change. */
-@keyframes xm-blink { 50% { opacity: .25; } }
+/* Blinking is off by default (as in Debian's Xymon theme) and only marks a recent change. Turning it on
+   is an explicit choice, so it also applies when the system asks for reduced motion. The SVG sets pulse
+   with a glow in the status colour, as in dig-bollen; the pixel sets blink. */
+.xm-dot.green { --xm-c: var(--xm-green); } .xm-dot.yellow { --xm-c: var(--xm-yellow); }
+.xm-dot.red { --xm-c: var(--xm-red); } .xm-dot.purple { --xm-c: var(--xm-purple); } .xm-dot.clear { --xm-c: var(--xm-clear); }
+@keyframes xm-blink { 50% { opacity: .2; } }
+@keyframes xm-pulse { 0%, 100% { filter: drop-shadow(0 0 0 transparent); } 50% { filter: drop-shadow(0 0 4px var(--xm-c)); } }
 html[data-blink="on"] .xm-dot.recent { animation: xm-blink 1.2s steps(1, end) infinite; }
-@media (prefers-reduced-motion: reduce) { html[data-blink="on"] .xm-dot.recent { animation: none; } }
+html[data-blink="on"][data-icons="vector"] .xm-dot.recent,
+html[data-blink="on"][data-icons="accessible"] .xm-dot.recent { overflow: visible; animation: xm-pulse 1.8s ease-in-out infinite; }
 .xm-dot.green { background-image: url("../images/status/green.gif"); }
 .xm-dot.yellow { background-image: url("../images/status/yellow.gif"); }
 .xm-dot.red { background-image: url("../images/status/red.gif"); }
