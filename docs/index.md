@@ -8,7 +8,7 @@ hide:
 
 Xymon monitors hosts, network services and anything else you configure it to check. This site brings together the documentation from every Xymon repository and links to the community resources around it.
 
-The grid below works like a Xymon status page. Each row is a topic, each column a type of documentation. Click a dot to open the page. The colour shows how current the source is.
+The grid below works like a Xymon status page. Each row is a topic, each column a type of documentation. Click an icon to open the page. The icon shows how current the source is.
 
 <!-- xymon-summary -->
 
