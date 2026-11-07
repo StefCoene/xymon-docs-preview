@@ -67,4 +67,5 @@ nav:
       - Project and community: project/project-and-community.md
   - About this preview:
       - about.md
+      - Status icons: icons.md
       - Changelog: changelog.md

@@ -177,3 +177,18 @@ html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../i
 
 /* Status message block, like a Xymon status page */
 .xm-msg { font-family: var(--md-code-font-family); font-size: .66rem; background: var(--xm-panel); border: 1px solid var(--xm-line); padding: .7rem .9rem; white-space: pre-wrap; }
+
+/* Status icons page: every set, status and state */
+.md-typeset table.xm-icons { border-collapse: collapse; font-size: .66rem; display: table; background: none; border: 0; }
+.md-typeset .xm-icons th, .md-typeset .xm-icons td { border: 0; padding: .25rem .6rem; text-align: center; vertical-align: middle; background: none; }
+.md-typeset .xm-icons th { color: var(--xm-dim); font-weight: 400; }
+.md-typeset .xm-icons td:nth-child(2), .md-typeset .xm-icons td.xm-st { text-align: left; white-space: nowrap; }
+.md-typeset .xm-icons tr.xm-first td { border-top: 1px solid var(--xm-line); }
+.md-typeset .xm-icons td.xm-st { font-weight: 700; vertical-align: top; }
+.md-typeset .xm-icons tr:not(.xm-first) td:first-child { color: var(--xm-dim); }
+.md-typeset .xm-icons img { vertical-align: middle; }
+.md-typeset .xm-icons img.pix { image-rendering: pixelated; }
+.xm-glyph { font-weight: 700; font-size: 1.15em; display: inline-block; }
+.xm-glyph.green { color: var(--xm-green); } .xm-glyph.yellow { color: var(--xm-yellow); } .xm-glyph.red { color: var(--xm-red); }
+.xm-glyph.purple { color: var(--xm-purple); } .xm-glyph.clear { color: var(--xm-clear); }
+.xm-glyph sup { font-size: .6em; }
