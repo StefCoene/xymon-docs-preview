@@ -37,6 +37,12 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   <span><span class="xm-dot green recent"></span>changed in the last 30 days</span>
 </div>
 
+## Recent changes to this site
+
+<!-- changelog 5 -->
+
+[Full changelog](changelog.md)
+
 ## Where to start
 
 | I want to… | Go to |

@@ -65,4 +65,6 @@ nav:
       - History of Xymon: project/history-of-xymon.md
       - Project organisation: project/project-organisation.md
       - Project and community: project/project-and-community.md
-  - About this preview: about.md
+  - About this preview:
+      - about.md
+      - Changelog: changelog.md

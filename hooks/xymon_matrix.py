@@ -18,6 +18,7 @@ import json
 import os
 import posixpath
 import re
+import subprocess
 
 import yaml
 
@@ -152,8 +153,32 @@ def _fix_links(markdown, src_uri):
     return LINK.sub(repl, markdown)
 
 
+CHANGELOG = re.compile(r"<!-- changelog(?: (\d+))? -->")
+REPO_URL = "https://github.com/StefCoene/xymon-docs-preview/commit/"
+
+
+def _changelog(base, limit):
+    """Commits of this site's own repository, newest first, as a Markdown table."""
+    fmt = "%H%x09%cs%x09%s"
+    args = ["git", "-C", base, "log", f"--format={fmt}", "--no-merges"]
+    if limit:
+        args.append(f"-{limit}")
+    try:
+        out = subprocess.run(args, capture_output=True, text=True, check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return "*Change history is not available in this build.*"
+    rows = ["| Date | Change |", "|---|---|"]
+    for line in out.splitlines():
+        sha, date, subject = line.split("\t", 2)
+        subject = subject.replace("|", "\\|")
+        rows.append(f"| {date} | [{subject}]({REPO_URL}{sha}) |")
+    return "\n".join(rows)
+
+
 def on_page_markdown(markdown, page, config, files):
     markdown = _fix_links(markdown, page.file.src_uri)
+    base = os.path.dirname(config.config_file_path)
+    markdown = CHANGELOG.sub(lambda m: _changelog(base, int(m.group(1) or 0)), markdown)
     if PLACEHOLDER not in markdown:
         return markdown
     today = dt.date.today()
