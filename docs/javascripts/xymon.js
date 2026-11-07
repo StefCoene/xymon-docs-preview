@@ -1,12 +1,12 @@
-// Icon set and blinking, remembered per visitor. Runs before the page renders to avoid a flash.
+// Icon set and animation, remembered per visitor. Runs before the page renders to avoid a flash.
 (function () {
   var root = document.documentElement;
   try {
     root.setAttribute("data-icons", localStorage.getItem("xm-icons") || "classic");
-    root.setAttribute("data-blink", localStorage.getItem("xm-blink") || "off");
+    root.setAttribute("data-anim", localStorage.getItem("xm-anim") || "off");
   } catch (e) {
     root.setAttribute("data-icons", "classic");
-    root.setAttribute("data-blink", "off");
+    root.setAttribute("data-anim", "off");
   }
 })();
 
@@ -37,5 +37,5 @@ document$.subscribe(function () {
   });
 
   xmToggle("data-icons", "xm-icons");
-  xmToggle("data-blink", "xm-blink");
+  xmToggle("data-anim", "xm-anim");
 });

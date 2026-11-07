@@ -27,9 +27,9 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   <button type="button" data-icons="text" aria-pressed="false">text</button>
   <button type="button" data-icons="christmas" aria-pressed="false">christmas</button>
   <button type="button" data-icons="gifts" aria-pressed="false">gifts</button>
-  <span>· Blink recent changes:
-  <button type="button" data-blink="off" aria-pressed="true">off</button>
-  <button type="button" data-blink="on" aria-pressed="false">on</button></span>
+  <span>· Animate:
+  <button type="button" data-anim="off" aria-pressed="true">off</button>
+  <button type="button" data-anim="on" aria-pressed="false">on</button></span>
 </div>
 
 <!-- xymon-matrix -->

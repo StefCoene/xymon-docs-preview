@@ -2,11 +2,11 @@
 
 Every icon is a character as well as a picture: ✓ green, ▲ yellow, ✕ red, ◆ purple, ○ clear, followed by `*` when the source changed in the last 30 days. Copy the grid into a mail or a text file and the statuses come along; screen readers read them too. An icon set only changes how that character looks, so a new theme (like Henrik's Christmas set) is a few lines of CSS and some images.
 
-Switch sets above the grid on the home page. Your choice is remembered in your browser. Icons do not blink, unless you turn on **Blink recent changes**. Then only recent changes move: the pixel sets blink, the Vector and Accessible sets pulse with a glow in the status colour.
+Switch sets above the grid on the home page. Your choice is remembered in your browser. Nothing moves unless you turn on **Animate**. Then, as in Xymon, the problem colours move (yellow, red, purple) and green and clear stay still: the Classic set plays its own animated GIFs, the other pixel sets blink, and the Vector and Accessible sets pulse with a glow in the status colour.
 
 ## Every combination
 
-Each row is a status in one state; each column an icon set. The last two columns show the text version: how the **text** set draws it, and what you get when you copy the grid into a mail or a text file. *Recent* means the source changed in the last 30 days; *blinking* is how a recent icon looks with **Blink recent changes** turned on.
+Each row is a status in one state; each column an icon set. The last two columns show the text version: how the **text** set draws it, and what you get when you copy the grid into a mail or a text file. *Recent* means the source changed in the last 30 days; *animated* is how the icon looks with **Animate** turned on.
 
 <!-- xymon-icon-table -->
 
@@ -16,7 +16,7 @@ On this site, *recent* can only be green: yellow means the source is 5+ years ol
 
 | Set | Made by |
 |---|---|
-| Classic | Stef Coene. Pixel icons in the traditional Xymon style: symbols for a status, faces for a recent change. Shown without animation. |
+| Classic | Stef Coene. Pixel icons in the traditional Xymon style: symbols for a status, faces for a recent change. Yellow, red and purple are animated GIFs; with **Animate** off the site shows one still frame of each. |
 | Vector | Stef Coene. Soft, rounded SVG versions of the classic shapes. |
 | Accessible | Stef Coene. SVG; a distinct shape and symbol for each status, in colour-blind-safe colours (Okabe-Ito); a recent change is shown filled, an older one hollow. |
 | Watcher | Steven Aiello (2007–2008), from the Xymonton add-on [sa_icons](https://wiki.xymonton.org/doku.php/addons:sa_icons). One shape per colour, so the grid also works for colour-blind readers. His [README](images/status/watcher/README.txt): "Use them as you like". |

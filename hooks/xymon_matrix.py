@@ -217,37 +217,44 @@ ICON_SETS = [  # (name, folder, extension, has its own -recent images, statuses 
 STATUS_ORDER = ["green", "yellow", "red", "purple", "clear"]
 
 
+MOVING = ["yellow", "red", "purple"]
+
+
 def _icon_table(prefix):
     """Every status x state x icon set, straight from the image files the site uses."""
-    states = [("", "normal"), ("recent", "recent"), ("blink", "recent, blinking")]
     head = "".join(f"<th>{n}</th>" for n, *_ in ICON_SETS)
     out = ['<div class="xm-matrix-wrap"><table class="xm-icons">',
            f"<thead><tr><th>Status</th><th>State</th>{head}<th>text</th><th>copied as</th></tr></thead><tbody>"]
     for st in STATUS_ORDER:
-        for i, (state, label) in enumerate(states):
-            recent = state != ""
-            row = [f'<td rowspan="3" class="xm-st">{st}</td>' if i == 0 else "", f"<td>{label}</td>"]
+        states = [(False, False, "normal"), (False, True, "normal, animated"),
+                  (True, False, "recent"), (True, True, "recent, animated")]
+        if st not in MOVING:
+            states = [x for x in states if not x[1]]
+        for i, (recent, anim, label) in enumerate(states):
+            row = [f'<td rowspan="{len(states)}" class="xm-st">{st}</td>' if i == 0 else "", f"<td>{label}</td>"]
             for name, folder, ext, own_recent, covers in ICON_SETS:
-                src_folder, note = (folder, "") if st in covers else ("", " (classic: not in this set)")
-                src_ext = ext if st in covers else "gif"
-                own = own_recent and st in covers or src_folder == ""
-                fname = f"{st}-recent" if recent and own else st
+                in_set = st in covers
+                src_folder, src_ext = (folder, ext) if in_set else ("", "gif")
+                classic = src_folder == ""
+                note = "" if in_set else " (classic: not in this set)"
+                fname = f"{st}-recent" if recent and (own_recent or classic) else st
                 style = []
-                if recent and not own_recent and st in covers:
+                if recent and in_set and not own_recent:
                     style.append("filter: drop-shadow(0 0 3px #fff6b0)")
-                if state == "blink":
-                    if src_ext == "svg":
-                        style.append(f"--xm-c: var(--xm-{st}); animation: xm-pulse 1.8s ease-in-out infinite")
-                    else:
-                        style.append("animation: xm-blink 1.2s steps(1, end) infinite")
+                if anim and classic:
+                    src_folder = "animated/"
+                elif anim and src_ext == "svg":
+                    style.append(f"--xm-c: var(--xm-{st}); animation: xm-pulse 1.8s ease-in-out infinite")
+                elif anim:
+                    style.append("animation: xm-blink 1.2s steps(1, end) infinite")
                 css = f' style="{"; ".join(style)}"' if style else ""
                 pix = ' class="pix"' if src_ext == "gif" else ""
-                alt = f"{name}: {st}{', recent' if recent else ''}{note}"
+                alt = f"{name}: {st}{', recent' if recent else ''}{', animated' if anim else ''}{note}"
                 row.append(f'<td><img src="{prefix}images/status/{src_folder}{fname}.{src_ext}" width="16" height="16" '
                            f'alt="{alt}" title="{alt}"{pix}{css}></td>')
             mark = "<sup>*</sup>" if recent else ""
-            anim = ' style="animation: xm-blink 1.2s steps(1, end) infinite"' if state == "blink" else ""
-            row.append(f'<td><span class="xm-glyph {st}"{anim}>{GLYPH[st]}{mark}</span></td>')
+            blink = ' style="animation: xm-blink 1.2s steps(1, end) infinite"' if anim else ""
+            row.append(f'<td><span class="xm-glyph {st}"{blink}>{GLYPH[st]}{mark}</span></td>')
             row.append(f"<td><code>{GLYPH[st]}{'*' if recent else ''}</code></td>")
             out.append(f'<tr class="{"xm-first" if i == 0 else ""}">{"".join(row)}</tr>')
     out.append("</tbody></table></div>")
