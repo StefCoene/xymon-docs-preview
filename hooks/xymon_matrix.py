@@ -226,8 +226,8 @@ def _icon_table(prefix):
     out = ['<div class="xm-matrix-wrap"><table class="xm-icons">',
            f"<thead><tr><th>Status</th><th>State</th>{head}<th>text</th><th>copied as</th></tr></thead><tbody>"]
     for st in STATUS_ORDER:
-        states = [(False, False, "normal"), (False, True, "normal, animated"),
-                  (True, False, "recent"), (True, True, "recent, animated")]
+        states = [(True, True, "recent, animated"), (True, False, "recent"),
+                  (False, True, "normal, animated"), (False, False, "normal")]
         if st not in MOVING:
             states = [x for x in states if not x[1]]
         for i, (recent, anim, label) in enumerate(states):
