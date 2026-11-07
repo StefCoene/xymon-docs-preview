@@ -44,8 +44,57 @@ def _bust(entry, docs_dir):
     return f"{path}?v={digest}"
 
 
+class _WikiLoader(yaml.SafeLoader):
+    """Reads the wiki's mkdocs.yml, ignoring its !!python tags."""
+
+
+_WikiLoader.add_multi_constructor("tag:yaml.org,2002:python/", lambda loader, suffix, node: None)
+
+
+def _wiki_path(path):
+    return "project/" + path[len("about/"):] if path.startswith("about/") else path
+
+
+def _wiki_remap(items):
+    out = []
+    for item in items:
+        if isinstance(item, str):
+            out.append(_wiki_path(item))
+        else:
+            (title, value), = item.items()
+            out.append({title: _wiki_remap(value) if isinstance(value, list) else _wiki_path(value)})
+    return out
+
+
+def _wiki_nav(nav, base):
+    """Replace "wiki:<section>[,<section>...]" in the nav with sections of the wiki's own navigation."""
+    try:
+        with open(os.path.join(base, ".sources", "xymon-wiki", "mkdocs.yml"), encoding="utf-8") as fh:
+            sections = {k: v for entry in yaml.load(fh, Loader=_WikiLoader)["nav"] for k, v in entry.items()}
+    except (OSError, KeyError, TypeError):
+        sections = {}
+
+    def expand(value):
+        if isinstance(value, list):
+            return [walk(v) for v in value]
+        if isinstance(value, str) and value.startswith("wiki:"):
+            first, *rest = value[5:].split(",")
+            items = _wiki_remap(sections.get(first, []))
+            items += [{name: _wiki_remap(sections.get(name, []))} for name in rest]
+            return items
+        return value
+
+    def walk(entry):
+        if isinstance(entry, dict):
+            return {k: expand(v) for k, v in entry.items()}
+        return entry
+
+    return [walk(e) for e in nav]
+
+
 def on_config(config):
     base = os.path.dirname(config.config_file_path)
+    config["nav"] = _wiki_nav(config["nav"], base)
     config["extra_css"] = [_bust(e, config["docs_dir"]) for e in config["extra_css"]]
     config["extra_javascript"] = [_bust(e, config["docs_dir"]) for e in config["extra_javascript"]]
     with open(os.path.join(base, "matrix.yml"), encoding="utf-8") as fh:
@@ -129,6 +178,8 @@ SOURCES = {
     "plugins/": "https://github.com/xymon-monitoring/xymon-plugins/blob/main/",
     "guides/": "https://github.com/xymon-monitoring/xymon-wiki/blob/main/docs/guides/",
     "project/": "https://github.com/xymon-monitoring/xymon-wiki/blob/main/docs/about/",
+    "contributing/": "https://github.com/xymon-monitoring/xymon-wiki/blob/main/docs/contributing/",
+    "development/": "https://github.com/xymon-monitoring/xymon-wiki/blob/main/docs/development/",
     "clients/windows-powershell/": "https://github.com/xymon-monitoring/xymon-wiki/blob/main/docs/clients/windows-powershell/",
 }
 LINK = re.compile(r"\]\((?!https?:|mailto:|#|/)([^)\s]+)\)")
@@ -145,6 +196,9 @@ def _fix_links(markdown, src_uri):
         resolved = posixpath.normpath(posixpath.join(here, target))
         if resolved in _state["files"] or posixpath.join(resolved, "README.md") in _state["files"]:
             return m.group(0)
+        moved = _wiki_path(resolved)  # wiki links to about/ pages, which live in project/ here
+        if moved != resolved and moved in _state["files"]:
+            return f"]({posixpath.relpath(moved, here or '.')}{'#' + anchor if anchor else ''})"
         rel = posixpath.relpath(resolved, prefix.rstrip("/"))
         base = SOURCES[prefix][len("https://github.com"):]
         path = posixpath.normpath(base + rel)

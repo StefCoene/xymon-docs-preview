@@ -21,7 +21,7 @@ groups:
           faq: manual/dev/known-issues.html
       - topic: Migrating from Big Brother
         cells:
-          guide: manual/dev/bb-to-xymon.html
+          guide: {path: manual/4.3/bb-to-xymon.html, note: "4.3 only: removed from dev on 2026-11-07"}
           man: manual/dev/manpages/man7/xymon.7.html
 
   - name: Configuration
@@ -90,3 +90,28 @@ groups:
         cells:
           guide: project/project-organisation.md
           howto: project/project-and-community.md
+      - topic: Project activity
+        cells:
+          guide: project/project-activity.md
+
+  - name: Contributing
+    rows:
+      - topic: First contribution
+        cells:
+          guide: contributing/git/contributing-overview.md
+          howto: contributing/git/first-contribution.md
+      - topic: Git workflow and rules
+        cells:
+          guide: contributing/git/git-contribution-flow.md
+          howto: contributing/git/git-setup.md
+          faq: contributing/git/git-rules.md
+      - topic: Reviewing a pull request
+        cells:
+          guide: contributing/reviewing.md
+      - topic: Backports and downstream
+        cells:
+          guide: contributing/backport-tracker-rules.md
+          howto: contributing/downstream-repositories.md
+      - topic: Legacy developer guide (SVN)
+        cells:
+          guide: development/developer-guide-legacy-sourceforge-svn.md

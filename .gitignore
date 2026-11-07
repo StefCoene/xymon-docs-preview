@@ -7,4 +7,6 @@ docs/guides/
 docs/project/
 docs/clients/windows-powershell/
 docs/plugins/
+docs/contributing/
+docs/development/
 __pycache__/

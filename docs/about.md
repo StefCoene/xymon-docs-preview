@@ -10,7 +10,7 @@ Every build pulls the documentation straight from the source repositories, so no
 |---|---|
 | Manual and man pages, dev | [`xymon`](https://github.com/xymon-monitoring/xymon), `docs/` on `main` |
 | Manual and man pages, 4.3 | [`xymon`](https://github.com/xymon-monitoring/xymon), `docs/` at tag `rel-4.3.31` |
-| Guides, project pages, PowerShell client | [`xymon-wiki`](https://github.com/xymon-monitoring/xymon-wiki) |
+| The whole wiki (guides, project pages, PowerShell client, contributing), in its own navigation order | [`xymon-wiki`](https://github.com/xymon-monitoring/xymon-wiki) |
 | Plugins | [`xymon-plugins`](https://github.com/xymon-monitoring/xymon-plugins) |
 | Overview, download, community, clients | Written for this site |
 

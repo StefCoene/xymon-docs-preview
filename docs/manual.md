@@ -13,5 +13,5 @@ The Xymon manual and man pages ship with every release in the [`docs/`](https://
 | MRTG integration | [4.3](manual/4.3/xymon-mrtg.html) | [dev](manual/dev/xymon-mrtg.html) |
 | Tips and tricks | [4.3](manual/4.3/xymon-tips.html) | [dev](manual/dev/xymon-tips.html) |
 | Known issues | [4.3](manual/4.3/known-issues.html) | [dev](manual/dev/known-issues.html) |
-| Migrating from Big Brother | [4.3](manual/4.3/bb-to-xymon.html) | [dev](manual/dev/bb-to-xymon.html) |
+| Migrating from Big Brother | [4.3](manual/4.3/bb-to-xymon.html) | removed (2026-11-07) |
 | **Man pages** | [4.3](manual/4.3/man-index.html) | [dev](manual/dev/man-index.html) |

@@ -9,7 +9,8 @@ DOCS="$ROOT/docs"
 ORG="https://github.com/xymon-monitoring"
 STABLE_REF="${STABLE_REF:-rel-4.3.31}"
 
-rm -rf "$SRC" "$DOCS/manual" "$DOCS/guides" "$DOCS/project" "$DOCS/clients/windows-powershell" "$DOCS/plugins"
+rm -rf "$SRC" "$DOCS/manual" "$DOCS/guides" "$DOCS/project" "$DOCS/clients/windows-powershell" "$DOCS/plugins" \
+  "$DOCS/contributing" "$DOCS/development"
 mkdir -p "$SRC"
 
 # Blob-less clones keep full history (for last-changed dates) without downloading every file.
@@ -48,13 +49,11 @@ copy_md() {  # copy_md <repo-dir> <path-in-repo> <path-under-docs>
   cp "$SRC/$1/$2" "$DOCS/$3"
   record "$1" "$2" "$3"
 }
-copy_md xymon-wiki docs/guides/how-to-compile-xymon.md          guides/how-to-compile-xymon.md
-copy_md xymon-wiki docs/guides/client-server-communication.md   guides/client-server-communication.md
-copy_md xymon-wiki docs/about/history-of-xymon.md               project/history-of-xymon.md
-copy_md xymon-wiki docs/about/project-organisation.md           project/project-organisation.md
-copy_md xymon-wiki docs/about/project-and-community.md          project/project-and-community.md
-for f in index installation usage local-settings remote-settings; do
-  copy_md xymon-wiki "docs/clients/windows-powershell/$f.md" "clients/windows-powershell/$f.md"
+# xymon-wiki: every page, in the same layout. Only about/ moves, to project/, because this site's
+# about.md describes the site itself. The navigation comes from the wiki's own mkdocs.yml (see the hook).
+(cd "$SRC/xymon-wiki/docs" && git ls-files '*.md') | while read -r f; do
+  [ "$f" = index.md ] && continue
+  copy_md xymon-wiki "docs/$f" "$(printf '%s' "$f" | sed 's#^about/#project/#')"
 done
 
 # xymon-plugins: keep the repository layout so the READMEs' relative links keep working.

@@ -19,7 +19,8 @@ Open points for the documentation site. Feedback and pull requests welcome.
 
 - [ ] Decide the default for **Animate**: off now (as in Debian's Xymon theme), or on (as on a stock Xymon server).
 - [ ] Move to `xymon-monitoring.github.io`: as a new repository, or by renaming `xymon-wiki` or the empty `xymon-site`?
-- [ ] Merge `xymon-wiki` into this site, or keep both?
+- [ ] This site now shows the whole `xymon-wiki`, which is also its own site at
+  https://xymon-monitoring.github.io/xymon-wiki/. Keep both, or retire the wiki site and keep the wiki repo as a source?
 - [ ] Versioned docs with `mike` (4.3 / dev), instead of two copied directories.
 - [ ] Custom domain (e.g. `docs.xymon.com`): who manages DNS for xymon.com?
 
