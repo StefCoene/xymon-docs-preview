@@ -10,6 +10,8 @@ Xymon monitors hosts, network services and anything else you configure it to che
 
 The grid below works like a Xymon status page. Each row is a topic, each column a type of documentation. Click an icon to open the page. The icon shows how current the source is.
 
+**About the icons.** The colours mean what they mean in Xymon: green is fine, yellow needs a look, red is missing. Pick the icon set you like above the grid: the classic Xymon icons, Steven Aiello's Watcher set, two SVG sets (one colour-blind safe), plain text, or Henrik's Christmas icons. Your choice is remembered. Nothing moves unless you turn on **Animate**. Then, as in Xymon, yellow, red and purple move. Each icon is also a character (✓ ▲ ✕ ◆ ○, with `*` for a recent change), so the statuses survive copy/paste. [All icon sets, every combination, and who made them](icons.md).
+
 <!-- xymon-summary -->
 
 <div class="xm-toolbar" role="group" aria-label="Icon set">
@@ -36,8 +38,6 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   <span><span class="xm-dot clear"></span>not applicable</span>
   <span><span class="xm-dot green recent"></span>changed in the last 30 days (* in plain text)</span>
 </div>
-
-**About the icons.** The colours mean what they mean in Xymon: green is fine, yellow needs a look, red is missing. Pick the icon set you like above the grid: the classic Xymon icons, Steven Aiello's Watcher set, two SVG sets (one colour-blind safe), plain text, or Henrik's Christmas icons. Your choice is remembered. Nothing moves unless you turn on **Animate**. Then, as in Xymon, yellow, red and purple move. Each icon is also a character (✓ ▲ ✕ ◆ ○, with `*` for a recent change), so the statuses survive copy/paste. [All icon sets, every combination, and who made them](icons.md).
 
 ## Recent changes to this site
 
