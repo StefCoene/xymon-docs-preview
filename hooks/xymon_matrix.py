@@ -243,6 +243,8 @@ def _icon_table(prefix):
                     style.append("filter: drop-shadow(0 0 3px #fff6b0)")
                 if anim and classic:
                     src_folder = "animated/"
+                elif anim and name == "watcher":  # its own pulse: the animated -recent GIF
+                    src_folder, fname = "watcher/animated/", f"{st}-recent"
                 elif anim and src_ext == "svg":
                     style.append(f"--xm-c: var(--xm-{st}); animation: xm-pulse 1.8s ease-in-out infinite")
                 elif anim:

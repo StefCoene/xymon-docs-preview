@@ -99,8 +99,8 @@ html[data-icons="gifts"] .xm-dot.clear, html[data-icons="gifts"] .xm-dot.clear.r
 html[data-icons="gifts"] .xm-dot.recent { filter: drop-shadow(0 0 3px #fff6b0); overflow: visible; }
 
 /* Animation, off by default (as in Debian's Xymon theme). As in Xymon, only problem colours move
-   (yellow, red, purple); green and clear never do. Classic plays its own animated GIFs; the other pixel
-   sets blink and the SVG sets pulse with a glow in the status colour, as in dig-bollen. Turning it on
+   (yellow, red, purple); green and clear never do. Classic and Watcher play their own animated GIFs (Watcher's
+   pulse is its -recent animation); the other pixel sets blink and the SVG sets pulse with a glow in the status colour, as in dig-bollen. Turning it on
    is an explicit choice, so it also applies when the system asks for reduced motion. */
 html[data-anim="on"][data-icons="classic"] .xm-dot.yellow { background-image: url("../images/status/animated/yellow.gif"); }
 html[data-anim="on"][data-icons="classic"] .xm-dot.yellow.recent { background-image: url("../images/status/animated/yellow-recent.gif"); }
@@ -108,10 +108,13 @@ html[data-anim="on"][data-icons="classic"] .xm-dot.red { background-image: url("
 html[data-anim="on"][data-icons="classic"] .xm-dot.red.recent { background-image: url("../images/status/animated/red-recent.gif"); }
 html[data-anim="on"][data-icons="classic"] .xm-dot.purple { background-image: url("../images/status/animated/purple.gif"); }
 html[data-anim="on"][data-icons="classic"] .xm-dot.purple.recent { background-image: url("../images/status/animated/purple-recent.gif"); }
+html[data-anim="on"][data-icons="watcher"] .xm-dot.yellow, html[data-anim="on"][data-icons="watcher"] .xm-dot.yellow.recent { background-image: url("../images/status/watcher/animated/yellow-recent.gif"); }
+html[data-anim="on"][data-icons="watcher"] .xm-dot.red, html[data-anim="on"][data-icons="watcher"] .xm-dot.red.recent { background-image: url("../images/status/watcher/animated/red-recent.gif"); }
+html[data-anim="on"][data-icons="watcher"] .xm-dot.purple, html[data-anim="on"][data-icons="watcher"] .xm-dot.purple.recent { background-image: url("../images/status/watcher/animated/purple-recent.gif"); }
 .xm-dot.yellow { --xm-c: var(--xm-yellow); } .xm-dot.red { --xm-c: var(--xm-red); } .xm-dot.purple { --xm-c: var(--xm-purple); }
 @keyframes xm-blink { 50% { opacity: .2; } }
 @keyframes xm-pulse { 0%, 100% { filter: drop-shadow(0 0 0 transparent); } 50% { filter: drop-shadow(0 0 4px var(--xm-c)); } }
-html[data-anim="on"]:not([data-icons="classic"]) .xm-dot:is(.yellow, .red, .purple) { animation: xm-blink 1.2s steps(1, end) infinite; }
+html[data-anim="on"]:not([data-icons="classic"], [data-icons="watcher"]) .xm-dot:is(.yellow, .red, .purple) { animation: xm-blink 1.2s steps(1, end) infinite; }
 html[data-anim="on"]:is([data-icons="vector"], [data-icons="accessible"]) .xm-dot:is(.yellow, .red, .purple) {
   overflow: visible; animation: xm-pulse 1.8s ease-in-out infinite;
 }
