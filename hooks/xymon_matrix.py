@@ -231,7 +231,7 @@ def _icon_table(prefix):
         if st not in MOVING:
             states = [x for x in states if not x[1]]
         for i, (recent, anim, label) in enumerate(states):
-            row = [f'<td rowspan="{len(states)}" class="xm-st">{st}</td>' if i == 0 else "", f"<td>{label}</td>"]
+            row = [f'<td rowspan="{len(states)}" class="xm-st">{st}</td>' if i == 0 else "", f'<td class="xm-state">{label}</td>']
             for name, folder, ext, own_recent, covers in ICON_SETS:
                 in_set = st in covers
                 src_folder, src_ext = (folder, ext) if in_set else ("", "gif")
