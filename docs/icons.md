@@ -16,7 +16,7 @@ On this site, *recent* can only be green: yellow means the source is 5+ years ol
 
 | Set | Made by |
 |---|---|
-| Classic | Stef Coene. Pixel icons in the traditional Xymon style: symbols for a status, faces for a recent change. Yellow, red and purple are animated GIFs; with **Animate** off the site shows one still frame of each. |
+| Classic | The icons that ship with Xymon (`xymond/wwwfiles/gifs`), collected by Henrik Størner in 2004–2005 from free archives ([his README](https://github.com/xymon-monitoring/xymon/blob/main/xymond/wwwfiles/gifs/README)): green from the Big Sister `bigbro13` skin; red, yellow, purple and clear from the deadcat.net "animated-bb-icons" collection; the faces for a recent change from the deadcat "smile" set. Yellow, red and purple are animated; with **Animate** off this site shows one still frame of each. |
 | Vector | Stef Coene. Soft, rounded SVG versions of the classic shapes. |
 | Accessible | Stef Coene. SVG; a distinct shape and symbol for each status, in colour-blind-safe colours (Okabe-Ito); a recent change is shown filled, an older one hollow. |
 | Watcher | Steven Aiello (2007–2008), from the Xymonton add-on [sa_icons](https://wiki.xymonton.org/doku.php/addons:sa_icons). One shape per colour, so the grid also works for colour-blind readers. His [README](images/status/watcher/README.txt): "Use them as you like". |
