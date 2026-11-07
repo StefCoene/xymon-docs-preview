@@ -1,0 +1,68 @@
+site_name: Xymon
+site_description: Unofficial preview of a central documentation site for the Xymon monitoring system
+site_url: https://stefcoene.github.io/xymon-docs-preview/
+repo_url: https://github.com/StefCoene/xymon-docs-preview
+repo_name: StefCoene/xymon-docs-preview
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: overrides
+  font: false
+  palette:
+    scheme: xymon
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+hooks:
+  - hooks/xymon_matrix.py
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/xymon.css
+extra_javascript:
+  - javascripts/xymon.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+
+nav:
+  - Overview: index.md
+  - Manual: manual.md
+  - Guides:
+      - Compile Xymon: guides/how-to-compile-xymon.md
+      - Client / server communication: guides/client-server-communication.md
+  - Clients:
+      - clients.md
+      - Windows PowerShell:
+          - clients/windows-powershell/index.md
+          - Installation: clients/windows-powershell/installation.md
+          - Usage: clients/windows-powershell/usage.md
+          - Local settings: clients/windows-powershell/local-settings.md
+          - Remote settings: clients/windows-powershell/remote-settings.md
+  - Plugins: plugins/README.md
+  - Download: download.md
+  - Community: community.md
+  - Project:
+      - History of Xymon: project/history-of-xymon.md
+      - Project organisation: project/project-organisation.md
+      - Project and community: project/project-and-community.md
+  - About this preview: about.md

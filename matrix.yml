@@ -1,0 +1,92 @@
+# Home-page status matrix. Each row is a topic ("host"), each column a type of documentation ("test").
+# A cell is either a path under docs/ (status computed at build time) or {url, status, note} for an external page.
+columns: [guide, man, howto, faq, community]
+
+groups:
+  - name: Getting started
+    rows:
+      - topic: What is Xymon
+        cells:
+          guide: manual/dev/about.html
+          howto: project/history-of-xymon.md
+          community: {url: "https://en.wikipedia.org/wiki/Xymon", note: "Wikipedia"}
+      - topic: Installing the server
+        cells:
+          guide: manual/dev/install.html
+          howto: guides/how-to-compile-xymon.md
+          community: {url: "https://en.wikibooks.org/wiki/System_Monitoring_with_Xymon", note: "Wikibooks"}
+      - topic: Upgrading 4.3 → 4.4
+        cells:
+          guide: manual/dev/upgrade-to-440.html
+          faq: manual/dev/known-issues.html
+      - topic: Migrating from Big Brother
+        cells:
+          guide: manual/dev/bb-to-xymon.html
+          man: manual/dev/manpages/man7/xymon.7.html
+
+  - name: Configuration
+    rows:
+      - topic: hosts.cfg
+        cells:
+          guide: manual/dev/xymon-config.html
+          man: manual/dev/manpages/man5/hosts.cfg.5.html
+          community: {url: "https://wiki.xymonton.org/doku.php/tutorials:start", status: purple, note: "Xymonton tutorials"}
+      - topic: analysis.cfg
+        cells:
+          man: manual/dev/manpages/man5/analysis.cfg.5.html
+          howto: manual/dev/xymon-tips.html
+      - topic: alerts.cfg
+        cells:
+          guide: manual/dev/xymon-alerts.html
+          man: manual/dev/manpages/man5/alerts.cfg.5.html
+          community: {url: "https://wiki.xymonton.org/doku.php?do=index&idx=alerts", status: purple, note: "Xymonton alert scripts"}
+      - topic: Graphs and RRD
+        cells:
+          guide: manual/dev/howtograph.html
+          man: manual/dev/manpages/man5/graphs.cfg.5.html
+          howto: manual/dev/xymon-mrtg.html
+      - topic: Critical systems view
+        cells:
+          guide: manual/dev/criticalsystems.html
+          man: manual/dev/manpages/man5/critical.cfg.5.html
+      - topic: Web server setup
+        cells:
+          man: manual/dev/manpages/man5/xymonweb.5.html
+          howto: manual/dev/xymon-apacheconf.txt
+          faq: manual/dev/known-issues.html
+
+  - name: Clients
+    rows:
+      - topic: Unix / Linux client
+        cells:
+          guide: guides/client-server-communication.md
+          man: manual/dev/manpages/man5/xymonclient.cfg.5.html
+          howto: manual/dev/manpages/man5/client-local.cfg.5.html
+      - topic: Windows PowerShell client
+        cells:
+          guide: clients/windows-powershell/index.md
+          howto: clients/windows-powershell/installation.md
+          faq: clients/windows-powershell/usage.md
+      - topic: Devmon (SNMP)
+        cells:
+          community: {url: "https://github.com/bonomani/devmon", status: purple, note: "bonomani/devmon"}
+
+  - name: Extensions
+    rows:
+      - topic: xymon-plugins
+        cells:
+          guide: plugins/README.md
+          howto: plugins/UPGRADING.md
+      - topic: Xymonton monitors
+        cells:
+          community: {url: "https://wiki.xymonton.org/doku.php?do=index&idx=monitors", status: purple, note: "101 monitors on Xymonton"}
+
+  - name: Community
+    rows:
+      - topic: Mailing list
+        cells:
+          community: {url: "https://mailman.xymon.com/hyperkitty/list/xymon@xymon.com/", note: "Mailman 3 archive, 2005 – now"}
+      - topic: Project organisation
+        cells:
+          guide: project/project-organisation.md
+          howto: project/project-and-community.md
