@@ -2,7 +2,7 @@
 
 Every icon is a character as well as a picture: ✓ green, ▲ yellow, ✕ red, ◆ purple, ○ clear, followed by `*` when the source changed in the last 30 days. Copy the grid into a mail or a text file and the statuses come along; screen readers read them too. An icon set only changes how that character looks, so a new theme (like Henrik's Christmas set) is a few lines of CSS and some images.
 
-Switch sets above the grid on the home page. Your choice is remembered in your browser. Nothing moves unless you turn on **Animate**. Then, as in Xymon, the problem colours move (yellow, red, purple) and green and clear stay still: the Classic and Watcher sets play their own animated GIFs, the other pixel sets blink, and the Vector and Accessible sets pulse with a glow in the status colour.
+Switch sets above the grid on the home page. Your choice is remembered in your browser. Nothing moves unless you turn on **Animate**. Then, as in Xymon, the problem colours move (yellow, red, purple); green and clear stay still, except where a set animates them itself (Watcher's recent icons pulse in every colour): the Classic and Watcher sets play their own animated GIFs, the other pixel sets blink, and the Vector and Accessible sets pulse with a glow in the status colour.
 
 ## Every combination
 

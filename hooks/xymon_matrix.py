@@ -228,8 +228,8 @@ def _icon_table(prefix):
     for st in STATUS_ORDER:
         states = [(True, True, "recent, animated"), (True, False, "recent"),
                   (False, True, "normal, animated"), (False, False, "normal")]
-        if st not in MOVING:
-            states = [x for x in states if not x[1]]
+        if st not in MOVING:  # green and clear: only Watcher's own recent animation moves
+            states = [x for x in states if x[0] or not x[1]]
         for i, (recent, anim, label) in enumerate(states):
             row = [f'<td rowspan="{len(states)}" class="xm-st">{st}</td>' if i == 0 else "", f'<td class="xm-state">{label}</td>']
             for name, folder, ext, own_recent, covers in ICON_SETS:
@@ -241,13 +241,14 @@ def _icon_table(prefix):
                 style = []
                 if recent and in_set and not own_recent:
                     style.append("filter: drop-shadow(0 0 3px #fff6b0)")
-                if anim and classic:
+                moves = st in MOVING
+                if anim and classic and moves:
                     src_folder = "animated/"
                 elif anim and name == "watcher":  # its own pulse: the animated -recent GIF
                     src_folder, fname = "watcher/animated/", f"{st}-recent"
-                elif anim and src_ext == "svg":
+                elif anim and moves and src_ext == "svg":
                     style.append(f"--xm-c: var(--xm-{st}); animation: xm-pulse 1.8s ease-in-out infinite")
-                elif anim:
+                elif anim and moves:
                     style.append("animation: xm-blink 1.2s steps(1, end) infinite")
                 css = f' style="{"; ".join(style)}"' if style else ""
                 pix = ' class="pix"' if src_ext == "gif" else ""
@@ -255,7 +256,7 @@ def _icon_table(prefix):
                 row.append(f'<td><img src="{prefix}images/status/{src_folder}{fname}.{src_ext}" width="16" height="16" '
                            f'alt="{alt}" title="{alt}"{pix}{css}></td>')
             mark = "<sup>*</sup>" if recent else ""
-            blink = ' style="animation: xm-blink 1.2s steps(1, end) infinite"' if anim else ""
+            blink = ' style="animation: xm-blink 1.2s steps(1, end) infinite"' if anim and st in MOVING else ""
             row.append(f'<td><span class="xm-glyph {st}"{blink}>{GLYPH[st]}{mark}</span></td>')
             row.append(f"<td><code>{GLYPH[st]}{'*' if recent else ''}</code></td>")
             out.append(f'<tr class="{"xm-first" if i == 0 else ""}">{"".join(row)}</tr>')

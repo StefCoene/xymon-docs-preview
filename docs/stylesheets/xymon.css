@@ -111,6 +111,8 @@ html[data-anim="on"][data-icons="classic"] .xm-dot.purple.recent { background-im
 html[data-anim="on"][data-icons="watcher"] .xm-dot.yellow, html[data-anim="on"][data-icons="watcher"] .xm-dot.yellow.recent { background-image: url("../images/status/watcher/animated/yellow-recent.gif"); }
 html[data-anim="on"][data-icons="watcher"] .xm-dot.red, html[data-anim="on"][data-icons="watcher"] .xm-dot.red.recent { background-image: url("../images/status/watcher/animated/red-recent.gif"); }
 html[data-anim="on"][data-icons="watcher"] .xm-dot.purple, html[data-anim="on"][data-icons="watcher"] .xm-dot.purple.recent { background-image: url("../images/status/watcher/animated/purple-recent.gif"); }
+html[data-anim="on"][data-icons="watcher"] .xm-dot.green.recent { background-image: url("../images/status/watcher/animated/green-recent.gif"); }
+html[data-anim="on"][data-icons="watcher"] .xm-dot.clear.recent { background-image: url("../images/status/watcher/animated/clear-recent.gif"); }
 .xm-dot.yellow { --xm-c: var(--xm-yellow); } .xm-dot.red { --xm-c: var(--xm-red); } .xm-dot.purple { --xm-c: var(--xm-purple); }
 @keyframes xm-blink { 50% { opacity: .2; } }
 @keyframes xm-pulse { 0%, 100% { filter: drop-shadow(0 0 0 transparent); } 50% { filter: drop-shadow(0 0 4px var(--xm-c)); } }
