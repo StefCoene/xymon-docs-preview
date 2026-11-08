@@ -23,6 +23,7 @@ The grid below works like a Xymon status page. Each row is a topic, each column 
   <button type="button" data-icons="text" aria-pressed="false">text</button>
   <button type="button" data-icons="christmas" aria-pressed="false">christmas</button>
   <button type="button" data-icons="gifts" aria-pressed="false">gifts</button>
+  <button type="button" data-icons="baubles" aria-pressed="false">baubles</button>
   <span>· Animate:
   <button type="button" data-anim="off" aria-pressed="true">off</button>
   <button type="button" data-anim="on" aria-pressed="false">on</button></span>

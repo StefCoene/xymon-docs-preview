@@ -44,7 +44,7 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
 - [ ] **Complete the alternative sets as Xymon skins** and offer them as optional downloads on that page.
   Watcher is nearly complete in its original form (blue, every `-ack`, `unknown`, `arrow`, `zoom`; the
   preview only uses part of it). The SVG sets have blue and `-ack` in dig-bollen but not here yet, and no
-  `unknown` or other files. Christmas lacks purple, clear and `-ack`; Gifts lacks `-recent` and `-ack`.
+  `unknown` or other files. Christmas lacks purple, clear and `-ack`; Gifts lacks `-recent` and `-ack`; Baubles lacks `-ack` and `unknown`.
 - [ ] **Animation in SVG sets**: Xymon has no Animate option, so an SVG set that should move needs the
   animation inside the SVG file (CSS or SMIL), only in the yellow, red and purple icons.
 - [ ] Possible Xymon features, only if wanted: a per-viewer choice of icon set (the preview does it in the

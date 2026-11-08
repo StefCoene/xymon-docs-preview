@@ -267,6 +267,7 @@ ICON_SETS = [  # (name, folder, extension, has its own -recent images, statuses 
     ("accessible", "accessible/", "svg", True, SEVERITY),
     ("christmas", "christmas/", "gif", True, ["green", "yellow", "red"]),
     ("gifts", "gifts/", "gif", False, SEVERITY),
+    ("baubles", "baubles/", "png", True, SEVERITY),
 ]
 STATUS_ORDER = ["green", "yellow", "red", "purple", "clear"]
 
@@ -276,9 +277,13 @@ MOVING = ["yellow", "red", "purple"]
 
 def _icon_table(prefix):
     """Every status x state x icon set, straight from the image files the site uses."""
-    head = "".join(f"<th>{n}</th>" for n, *_ in ICON_SETS)
-    out = ['<div class="xm-matrix-wrap"><table class="xm-icons">',
-           f"<thead><tr><th>Status</th><th>State</th>{head}<th>text</th><th>copied as</th></tr></thead><tbody>"]
+    cols = [n for n, *_ in ICON_SETS] + ["text", "copied as"]
+    head = "".join(f'<th data-col="{c}">{c}</th>' for c in cols)
+    boxes = "".join(f'<label><input type="checkbox" value="{c}" checked> {c}</label>' for c in cols)
+    out = ['<details class="xm-cols"><summary>Columns</summary><div>'
+           f'{boxes}<button type="button" data-cols="all">all</button></div></details>',
+           '<div class="xm-matrix-wrap"><table class="xm-icons">',
+           f"<thead><tr><th>Status</th><th>State</th>{head}</tr></thead><tbody>"]
     for st in STATUS_ORDER:
         states = [(True, True, "recent, animated"), (True, False, "recent"),
                   (False, True, "normal, animated"), (False, False, "normal")]
@@ -305,14 +310,14 @@ def _icon_table(prefix):
                 elif anim and moves:
                     style.append("animation: xm-blink 1.2s steps(1, end) infinite")
                 css = f' style="{"; ".join(style)}"' if style else ""
-                pix = ' class="pix"' if src_ext == "gif" else ""
+                pix = ' class="pix"' if src_ext in ("gif", "png") else ""
                 alt = f"{name}: {st}{', recent' if recent else ''}{', animated' if anim else ''}{note}"
-                row.append(f'<td><img src="{prefix}images/status/{src_folder}{fname}.{src_ext}" width="16" height="16" '
+                row.append(f'<td data-col="{name}"><img src="{prefix}images/status/{src_folder}{fname}.{src_ext}" width="16" height="16" '
                            f'alt="{alt}" title="{alt}"{pix}{css}></td>')
             mark = "<sup>*</sup>" if recent else ""
             blink = ' style="animation: xm-blink 1.2s steps(1, end) infinite"' if anim and st in MOVING else ""
-            row.append(f'<td><span class="xm-glyph {st}"{blink}>{GLYPH[st]}{mark}</span></td>')
-            row.append(f"<td><code>{GLYPH[st]}{'*' if recent else ''}</code></td>")
+            row.append(f'<td data-col="text"><span class="xm-glyph {st}"{blink}>{GLYPH[st]}{mark}</span></td>')
+            row.append(f'<td data-col="copied as"><code>{GLYPH[st]}{'*' if recent else ''}</code></td>')
             out.append(f'<tr class="{"xm-first" if i == 0 else ""}">{"".join(row)}</tr>')
     out.append("</tbody></table></div>")
     return "\n".join(out)

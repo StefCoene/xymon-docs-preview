@@ -22,7 +22,7 @@ On top of that, the viewer chooses:
 
 | Choice | Values | Default |
 |---|---|---|
-| **Icon set** | `classic`, `watcher`, `vector`, `accessible`, `text`, `christmas`, `gifts` | `classic` |
+| **Icon set** | `classic`, `watcher`, `vector`, `accessible`, `text`, `christmas`, `gifts`, `baubles` | `classic` |
 | **Animate** | `off`, `on` | `off` (as in Debian's Xymon theme; many people dislike blinking) |
 
 Animation rule, as in Xymon: **only problem colours move (yellow, red, purple)**. Green and clear stay still,
@@ -62,6 +62,7 @@ All 16×16 pixels, except the Christmas originals (24×24, scaled down by CSS). 
 | text | none | none: CSS blink | The character itself, coloured by CSS. |
 | christmas | `christmas/{green,yellow,red}{,-recent}.gif`, `christmas/blue.gif`, page background `christmas/bkg.gif` | none: CSS blink | Henrik Størner, https://www.xymon.com/misc/Christmas.zip. **No purple or clear**: fall back to classic. |
 | gifts | `gifts/<status>.gif` (one per colour) | none: CSS blink | Steve Dobbs (2003, deadcat.net). No recent images: show recent with a glow (`filter: drop-shadow(0 0 3px #fff6b0)`). |
+| baubles | `baubles/<status>.png`, `baubles/<status>-recent.png` (also blue) | none: CSS blink | Bruno Manzoni. 16×16 PNG RGBA; recent adds a gold sparkle. |
 
 Keep the `README.txt` files next to the images: they hold the makers' notes and licence statements.
 
@@ -159,6 +160,7 @@ Buttons: `<button data-icons="watcher">` and `<button data-anim="on">`; on click
 | Vector, Accessible | Stef Coene |
 | Christmas | Henrik Størner (2007), [Christmas.zip](https://www.xymon.com/misc/Christmas.zip) |
 | Gifts | Steve Dobbs (2003), [gifts.tar.gz](https://web.archive.org/web/20080726061802if_/http://www.deadcat.net/40/gifts.tar.gz) |
+| Baubles | Bruno Manzoni |
 
 ## 8. Prompt for a new Claude session
 

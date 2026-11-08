@@ -98,6 +98,19 @@ html[data-icons="gifts"] .xm-dot.purple, html[data-icons="gifts"] .xm-dot.purple
 html[data-icons="gifts"] .xm-dot.clear, html[data-icons="gifts"] .xm-dot.clear.recent { background-image: url("../images/status/gifts/clear.gif"); }
 html[data-icons="gifts"] .xm-dot.recent { filter: drop-shadow(0 0 3px #fff6b0); overflow: visible; }
 
+/* Icon set: "Baubles" by Bruno Manzoni: Christmas baubles in every status colour, 16x16 PNG;
+   a gold sparkle marks a recent change. */
+html[data-icons="baubles"] .xm-dot.green { background-image: url("../images/status/baubles/green.png"); }
+html[data-icons="baubles"] .xm-dot.green.recent { background-image: url("../images/status/baubles/green-recent.png"); }
+html[data-icons="baubles"] .xm-dot.yellow { background-image: url("../images/status/baubles/yellow.png"); }
+html[data-icons="baubles"] .xm-dot.yellow.recent { background-image: url("../images/status/baubles/yellow-recent.png"); }
+html[data-icons="baubles"] .xm-dot.red { background-image: url("../images/status/baubles/red.png"); }
+html[data-icons="baubles"] .xm-dot.red.recent { background-image: url("../images/status/baubles/red-recent.png"); }
+html[data-icons="baubles"] .xm-dot.purple { background-image: url("../images/status/baubles/purple.png"); }
+html[data-icons="baubles"] .xm-dot.purple.recent { background-image: url("../images/status/baubles/purple-recent.png"); }
+html[data-icons="baubles"] .xm-dot.clear { background-image: url("../images/status/baubles/clear.png"); }
+html[data-icons="baubles"] .xm-dot.clear.recent { background-image: url("../images/status/baubles/clear-recent.png"); }
+
 /* Animation, off by default (as in Debian's Xymon theme). As in Xymon, only problem colours move
    (yellow, red, purple); green and clear never do. Classic and Watcher play their own animated GIFs (Watcher's
    pulse is its -recent animation); the other pixel sets blink and the SVG sets pulse with a glow in the status colour, as in dig-bollen. Turning it on
@@ -199,6 +212,13 @@ html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../i
 .md-typeset .xm-icons td.xm-st { font-weight: 700; vertical-align: top; }
 .md-typeset .xm-icons img { vertical-align: middle; }
 .md-typeset .xm-icons img.pix { image-rendering: pixelated; }
+.md-typeset .xm-icons [hidden] { display: none; }
+.md-typeset details.xm-cols { display: inline-block; margin: 0 0 .6rem; padding: 0; border: 1px solid var(--xm-line); border-radius: 4px; box-shadow: none; font-size: .66rem; background: none; }
+.md-typeset details.xm-cols > summary { padding: .25rem .6rem; cursor: pointer; background: none; color: var(--xm-dim); }
+.md-typeset details.xm-cols > summary::before, .md-typeset details.xm-cols > summary::after { display: none; }
+.md-typeset details.xm-cols > div { display: flex; flex-wrap: wrap; gap: .3rem .9rem; padding: .3rem .6rem .5rem; }
+.md-typeset details.xm-cols label { white-space: nowrap; cursor: pointer; }
+.md-typeset details.xm-cols button { color: var(--xm-dim); text-decoration: underline; cursor: pointer; }
 .xm-glyph { font-weight: 700; font-size: 1.15em; display: inline-block; }
 .xm-glyph.green { color: var(--xm-green); } .xm-glyph.yellow { color: var(--xm-yellow); } .xm-glyph.red { color: var(--xm-red); }
 .xm-glyph.purple { color: var(--xm-purple); } .xm-glyph.clear { color: var(--xm-clear); }
