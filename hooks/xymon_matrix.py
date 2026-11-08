@@ -231,7 +231,9 @@ def _changelog(base, limit):
 
 # Each icon is also a character, so its meaning survives copy/paste, plain text and screen readers.
 # Image sets paint over it with CSS; the "text" icon set shows it. "*" marks a recent change.
-GLYPH = {"green": "\u2713", "yellow": "\u25b2", "red": "\u2715", "purple": "\u25c6", "clear": "\u25cb"}
+GLYPH = {"green": "\u2713", "yellow": "\u25b2", "red": "\u2715", "purple": "\u25c6", "clear": "\u25cb", "blue": "\u25a0"}
+# Text versions of the other files a Xymon skin has (see ICONS-IN-XYMON.md)
+GLYPH_EXTRA = {"unknown": ("unknown", "?"), "arrow": ("neutral", "\u2192"), "zoom": ("neutral", "\u2295")}
 DOT = re.compile(r'<span class="xm-dot (\w+)( recent)?"([^>]*)></span>')
 
 
@@ -331,10 +333,20 @@ SKIN_FILES = (  # (file name without extension, what Xymon uses it for)
        ("arrow", "event log: from \u2192 to"), ("zoom", "graphs: zoom")])
 
 
+def _skin_glyph(fname):
+    """The text version of one skin file: the status character, * for recent, (..) for acknowledged."""
+    base, _, state = fname.partition("-")
+    cls, ch = GLYPH_EXTRA.get(base, (base, GLYPH.get(base, "")))
+    if state == "ack":
+        return f'<span class="xm-glyph {cls} xm-ack" title="{fname}">({ch})</span>'
+    mark = "<sup>*</sup>" if state == "recent" else ""
+    return f'<span class="xm-glyph {cls}" title="{fname}">{ch}{mark}</span>'
+
+
 def _skin_table(prefix, docs_dir):
     """Per set, which files a complete Xymon skin needs and which exist."""
     sets = [(n, f, e) for n, f, e, *_ in ICON_SETS]
-    head = "".join(f"<th>{n}</th>" for n, *_ in sets)
+    head = "".join(f"<th>{n}</th>" for n, *_ in sets) + "<th>text</th>"
     out = ['<div class="xm-matrix-wrap"><table class="xm-icons xm-skin">',
            f"<thead><tr><th>File</th>{head}</tr></thead><tbody>"]
     have = {n: 0 for n, *_ in sets}
@@ -350,10 +362,11 @@ def _skin_table(prefix, docs_dir):
                 row.append(f'<td><img src="{prefix}{rel}"{size} alt="{name}: {fname}" title="{name}: {fname}.{ext}"{pix}></td>')
             else:
                 row.append(f'<td class="xm-missing" title="{name}: no {fname}.{ext}">\u2013</td>')
+        row.append(f"<td>{_skin_glyph(fname)}</td>")
         out.append(f"<tr>{''.join(row)}</tr>")
     total = len(SKIN_FILES)
     foot = "".join(f'<td class="{"xm-complete" if have[n] == total else ""}">{have[n]}/{total}</td>' for n, *_ in sets)
-    out.append(f'</tbody><tfoot><tr><td class="xm-state">files present</td>{foot}</tr></tfoot></table></div>')
+    out.append(f'</tbody><tfoot><tr><td class="xm-state">files present</td>{foot}<td class="xm-complete">{total}/{total}</td></tr></tfoot></table></div>')
     return "\n".join(out)
 
 

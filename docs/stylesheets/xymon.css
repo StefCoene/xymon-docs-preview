@@ -13,6 +13,7 @@
   --xm-red: #f03a2a;
   --xm-purple: #b04fe0;
   --xm-clear: #8a8a8a;
+  --xm-blue: #3a8df0;
   --xm-tint: #0b3d14;
 
   --md-default-bg-color: var(--xm-bg);
@@ -233,3 +234,5 @@ html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../i
 .xm-glyph.green { color: var(--xm-green); } .xm-glyph.yellow { color: var(--xm-yellow); } .xm-glyph.red { color: var(--xm-red); }
 .xm-glyph.purple { color: var(--xm-purple); } .xm-glyph.clear { color: var(--xm-clear); }
 .xm-glyph sup { font-size: .6em; }
+.xm-glyph.blue { color: var(--xm-blue); } .xm-glyph.unknown { color: var(--xm-dim); } .xm-glyph.neutral { color: var(--xm-link); }
+.xm-glyph.xm-ack { opacity: .65; }

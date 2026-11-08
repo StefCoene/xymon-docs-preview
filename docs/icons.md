@@ -19,7 +19,9 @@ Xymon can load any of these sets instead of its own icons: put the files in a di
 files than this site shows. This table lists them per set; **–** means the set has no such file.
 The backgrounds (`bkg-<colour>.gif`), the `favicon-*.ico` files and `xymonbody.css` are not icons and
 can be copied from Xymon's own `gifs` directory. `-ack` is only needed for yellow, red and purple: only a
-problem can be acknowledged.
+problem can be acknowledged. The **text** column proposes characters for the text set: ■ for blue (a filled
+shape like ▲ and ◆), the status character in brackets for acknowledged, **?** for unknown, **→** for the
+arrow and **⊕** for zoom. No emoji: without an emoji font they show as empty boxes.
 
 <!-- xymon-skin-table -->
 

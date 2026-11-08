@@ -100,12 +100,17 @@ Use **numeric character references** (`&#x2715;`), not UTF-8 bytes: the header t
 | red | ✕ | `&#x2715;` | |
 | purple | ◆ | `&#x25C6;` | |
 | clear | ○ | `&#x25CB;` | |
-| blue | ⊘ | `&#x2298;` | proposal; the preview has no blue |
+| blue | ■ | `&#x25A0;` | a filled shape like ▲ and ◆; the square matches the Vector and Accessible sets |
 | recent | `*` after the character | | only with `--recentgifs`, as now |
-| acked | class `ack`, and e.g. `~` after the character | | proposal, to discuss |
+| acked | the character in brackets, e.g. `(✕)`, class `ack` (dimmed) | | only yellow, red and purple can be acknowledged |
+| unknown | ? | `?` | `unknown-recent`: `?*` |
+| arrow | → | `&#x2192;` | event log, "from → to" |
+| zoom | ⊕ | `&#x2295;` | graphs |
 
 The character is the information and survives copy/paste into mails and tickets; screen readers read it.
-Do not use emoji (🟢): their look depends on the platform and CSS cannot recolour them.
+Do not use emoji (🟢, ⏸, 🔍): their look depends on the platform, CSS cannot recolour them, and without an
+emoji font they show as empty boxes. The icons page shows all of these in the **text** column of
+"Complete Xymon skin".
 
 ### 3.3 CSS
 
@@ -117,7 +122,7 @@ Add the rules to `xymond/wwwfiles/gifs/xymonbody.css` (loaded on every page thro
 .xmdot.red    { color: #ff0000; }  .xmdot.purple { color: #cc66ff; }
 .xmdot.clear  { color: #c0c0c0; }  .xmdot.blue   { color: #3399ff; }
 .xmdot .r { font-size: .6em; vertical-align: super; }
-.xmdot.ack { opacity: .6; }
+.xmdot.ack { opacity: .65; }
 ```
 
 `min-width` keeps the column widths that `xymongen` computes from `DOTWIDTH`.
