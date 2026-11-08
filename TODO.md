@@ -42,9 +42,18 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
   from `xymond/wwwfiles/gifs`. `IMAGEFILETYPE` also applies to `arrow` and `zoom` (so an SVG set needs
   `arrow.svg` and `zoom.svg`); the `bkg-*.gif` backgrounds are named in `xymonbody.css`, so a skin can keep them.
 - [ ] **Complete the alternative sets as Xymon skins** and offer them as optional downloads on that page.
-  Watcher is nearly complete in its original form (blue, every `-ack`, `unknown`, `arrow`, `zoom`; the
-  preview only uses part of it). The SVG sets have blue and `-ack` in dig-bollen but not here yet, and no
-  `unknown` or other files. Christmas lacks purple, clear and `-ack`; Gifts lacks `-recent` and `-ack`; Baubles lacks `-ack` and `unknown`.
+  The preview only copied what the status matrix uses; the originals have more. Still missing per set
+  (`bkg-*`, `favicon-*` and `xymonbody.css` can come from classic):
+
+  | Set | Blue | `-ack` | `unknown` | `arrow`, `zoom` | Other gaps |
+  |---|---|---|---|---|---|
+  | Classic | ok (Xymon's `gifs/`) | ok | ok | ok | complete; the preview only copied part |
+  | Watcher | ok (dig-bollen) | no `green-ack` | ok | ok | complete otherwise |
+  | Vector, Accessible | in dig-bollen, not exported | in dig-bollen, not exported | missing | missing | |
+  | Baubles | ok | missing | missing | missing | |
+  | Christmas | `blue` only, no `blue-recent` | missing | missing | missing | no purple, no clear |
+  | Gifts | `blue.gif` in the original, not copied | missing | missing | missing | no `-recent` at all |
+
 - [ ] **Animation in SVG sets**: Xymon has no Animate option, so an SVG set that should move needs the
   animation inside the SVG file (CSS or SMIL), only in the yellow, red and purple icons.
 - [ ] Possible Xymon features, only if wanted: a per-viewer choice of icon set (the preview does it in the
