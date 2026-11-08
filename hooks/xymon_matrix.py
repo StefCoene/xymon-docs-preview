@@ -323,10 +323,47 @@ def _icon_table(prefix):
     return "\n".join(out)
 
 
+SKIN_TABLE = "<!-- xymon-skin-table -->"
+SKIN_FILES = (  # (file name without extension, what Xymon uses it for)
+    [(f"{c}{r}", "") for c in ["green", "yellow", "red", "purple", "blue", "clear"] for r in ("", "-recent")]
+    + [(f"{c}-ack", "acknowledged") for c in MOVING]
+    + [("unknown", "no status known"), ("unknown-recent", "no status known, recent"),
+       ("arrow", "event log: from \u2192 to"), ("zoom", "graphs: zoom")])
+
+
+def _skin_table(prefix, docs_dir):
+    """Per set, which files a complete Xymon skin needs and which exist."""
+    sets = [(n, f, e) for n, f, e, *_ in ICON_SETS]
+    head = "".join(f"<th>{n}</th>" for n, *_ in sets)
+    out = ['<div class="xm-matrix-wrap"><table class="xm-icons xm-skin">',
+           f"<thead><tr><th>File</th>{head}</tr></thead><tbody>"]
+    have = {n: 0 for n, *_ in sets}
+    for fname, use in SKIN_FILES:
+        label = f"<code>{fname}</code>" + (f' <span class="xm-use">{use}</span>' if use else "")
+        row = [f'<td class="xm-state">{label}</td>']
+        for name, folder, ext in sets:
+            rel = f"images/status/{folder}{fname}.{ext}"
+            if os.path.exists(os.path.join(docs_dir, rel)):
+                have[name] += 1
+                size = "" if fname in ("arrow", "zoom") else ' width="16" height="16"'
+                pix = ' class="pix"' if ext in ("gif", "png") else ""
+                row.append(f'<td><img src="{prefix}{rel}"{size} alt="{name}: {fname}" title="{name}: {fname}.{ext}"{pix}></td>')
+            else:
+                row.append(f'<td class="xm-missing" title="{name}: no {fname}.{ext}">\u2013</td>')
+        out.append(f"<tr>{''.join(row)}</tr>")
+    total = len(SKIN_FILES)
+    foot = "".join(f'<td class="{"xm-complete" if have[n] == total else ""}">{have[n]}/{total}</td>' for n, *_ in sets)
+    out.append(f'</tbody><tfoot><tr><td class="xm-state">files present</td>{foot}</tr></tfoot></table></div>')
+    return "\n".join(out)
+
+
 def on_page_markdown(markdown, page, config, files):
     if ICON_TABLE in markdown:
         depth = page.file.url.count("/")
         markdown = markdown.replace(ICON_TABLE, _icon_table("../" * depth))
+    if SKIN_TABLE in markdown:
+        depth = page.file.url.count("/")
+        markdown = markdown.replace(SKIN_TABLE, _skin_table("../" * depth, config["docs_dir"]))
     markdown = _fix_links(markdown, page.file.src_uri)
     markdown = _dist_links(markdown, page.file.src_uri)
     markdown = _glyphs(markdown)

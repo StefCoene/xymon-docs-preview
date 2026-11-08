@@ -12,6 +12,17 @@ Each row is a status in one state; each column an icon set. The last two columns
 
 On this site, *recent* can only be green: yellow means the source is 5+ years old, and red means the page is missing.
 
+## Complete Xymon skin
+
+Xymon can load any of these sets instead of its own icons: put the files in a directory and point
+`XYMONSKIN` at it, with `IMAGEFILETYPE=svg` or `png` for sets that are not GIF. Xymon then asks for more
+files than this site shows. This table lists them per set; **–** means the set has no such file.
+The backgrounds (`bkg-<colour>.gif`), the `favicon-*.ico` files and `xymonbody.css` are not icons and
+can be copied from Xymon's own `gifs` directory. `-ack` is only needed for yellow, red and purple: only a
+problem can be acknowledged.
+
+<!-- xymon-skin-table -->
+
 ## Who made them
 
 | Set | Made by |

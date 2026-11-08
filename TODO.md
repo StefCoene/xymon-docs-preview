@@ -43,17 +43,17 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
   from `xymond/wwwfiles/gifs`. `IMAGEFILETYPE` also applies to `arrow` and `zoom` (so an SVG set needs
   `arrow.svg` and `zoom.svg`); the `bkg-*.gif` backgrounds are named in `xymonbody.css`, so a skin can keep them.
 - [ ] **Complete the alternative sets as Xymon skins** and offer them as optional downloads on that page.
-  The preview only copied what the status matrix uses; the originals have more. Still missing per set
+  The icons page shows this per set ("Complete Xymon skin"). Still missing per set
   (`bkg-*`, `favicon-*` and `xymonbody.css` can come from classic):
 
   | Set | Blue | `-ack` | `unknown` | `arrow`, `zoom` | Other gaps |
   |---|---|---|---|---|---|
-  | Classic | ok (Xymon's `gifs/`) | ok | ok | ok | complete; the preview only copied part |
+  | Classic | ok (Xymon's `gifs/`) | ok | ok | ok | complete |
   | Watcher | ok (dig-bollen) | ok | ok | ok | complete |
   | Vector, Accessible | ok | ok | ok | ok | complete (`scripts/make-svg-icons.py`) |
   | Baubles | ok | missing | missing | missing | |
   | Christmas | `blue` only, no `blue-recent` | missing | missing | missing | no purple, no clear |
-  | Gifts | `blue.gif` in the original, not copied | missing | missing | missing | no `-recent` at all |
+  | Gifts | ok | missing | missing | missing | no `-recent` at all |
 
 - [ ] **Animation in SVG sets**: Xymon has no Animate option, so an SVG set that should move needs the
   animation inside the SVG file (CSS or SMIL), only in the yellow, red and purple icons.
