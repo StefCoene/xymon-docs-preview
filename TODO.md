@@ -48,7 +48,8 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
 - [ ] **Animation in SVG sets**: Xymon has no Animate option, so an SVG set that should move needs the
   animation inside the SVG file (CSS or SMIL), only in the yellow, red and purple icons.
 - [ ] Possible Xymon features, only if wanted: a per-viewer choice of icon set (the preview does it in the
-  browser), and icons as text characters (Xymon writes `<img>` tags today).
+  browser), and icons as text characters (Xymon writes `<img>` tags today). What the source code needs, step by step:
+  [ICONS-IN-XYMON.md](ICONS-IN-XYMON.md).
 
 ## Community
 
