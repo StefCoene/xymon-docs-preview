@@ -15,10 +15,6 @@ groups:
           guide: manual/dev/install.html
           howto: guides/how-to-compile-xymon.md
           community: {url: "https://en.wikibooks.org/wiki/System_Monitoring_with_Xymon", note: "Wikibooks"}
-      - topic: Upgrading 4.3 → 4.4
-        cells:
-          guide: manual/dev/upgrade-to-440.html
-          faq: manual/dev/known-issues.html
       - topic: Migrating from Big Brother
         cells:
           guide: {path: manual/4.3/bb-to-xymon.html, note: "4.3 only: removed from dev on 2026-11-07"}
