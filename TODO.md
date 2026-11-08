@@ -37,7 +37,8 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
 - [ ] **Document `IMAGEFILETYPE`** in `xymonserver.cfg(5)` (pull request on `xymon`).
 - [ ] **Docs page "Using another icon set"**: which files a skin directory needs, and how to set
   `XYMONSKIN` and `IMAGEFILETYPE`. A complete set has every colour (green, yellow, red, purple, blue,
-  clear) as `<colour>`, `<colour>-recent` and `<colour>-ack` (no `clear-ack`), plus `unknown`,
+  clear) as `<colour>` and `<colour>-recent`, `-ack` only for yellow, red and purple (only a problem
+  can be acknowledged; Xymon's own `green-ack` and `blue-ack` are not needed), plus `unknown`,
   `unknown-recent`, `arrow`, `zoom`, `bkg-<colour>`, the `favicon-*.ico` files and `xymonbody.css`
   from `xymond/wwwfiles/gifs`. `IMAGEFILETYPE` also applies to `arrow` and `zoom` (so an SVG set needs
   `arrow.svg` and `zoom.svg`); the `bkg-*.gif` backgrounds are named in `xymonbody.css`, so a skin can keep them.
@@ -48,8 +49,8 @@ extension, so `IMAGEFILETYPE=svg` makes Xymon request `red.svg`, and `DOTWIDTH` 
   | Set | Blue | `-ack` | `unknown` | `arrow`, `zoom` | Other gaps |
   |---|---|---|---|---|---|
   | Classic | ok (Xymon's `gifs/`) | ok | ok | ok | complete; the preview only copied part |
-  | Watcher | ok (dig-bollen) | no `green-ack` | ok | ok | complete otherwise |
-  | Vector, Accessible | in dig-bollen, not exported | in dig-bollen, not exported | missing | missing | |
+  | Watcher | ok (dig-bollen) | ok | ok | ok | complete |
+  | Vector, Accessible | ok | ok | ok | ok | complete (`scripts/make-svg-icons.py`) |
   | Baubles | ok | missing | missing | missing | |
   | Christmas | `blue` only, no `blue-recent` | missing | missing | missing | no purple, no clear |
   | Gifts | `blue.gif` in the original, not copied | missing | missing | missing | no `-recent` at all |
