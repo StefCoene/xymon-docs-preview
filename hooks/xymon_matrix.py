@@ -280,7 +280,7 @@ def _icon_table(prefix):
     cols = [n for n, *_ in ICON_SETS] + ["text", "copied as"]
     head = "".join(f'<th data-col="{c}">{c}</th>' for c in cols)
     boxes = "".join(f'<label><input type="checkbox" value="{c}" checked> {c}</label>' for c in cols)
-    out = ['<details class="xm-cols"><summary>Columns</summary><div>'
+    out = ['<details class="xm-cols"><summary>Choose columns <span class="xm-cols-count"></span></summary><div>'
            f'{boxes}<button type="button" data-cols="all">all</button></div></details>',
            '<div class="xm-matrix-wrap"><table class="xm-icons">',
            f"<thead><tr><th>Status</th><th>State</th>{head}</tr></thead><tbody>"]

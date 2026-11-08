@@ -37,6 +37,8 @@ function xmColumns() {
       cell.hidden = hidden.indexOf(cell.getAttribute("data-col")) >= 0;
     });
     boxes.forEach(function (b) { b.checked = hidden.indexOf(b.value) < 0; });
+    var count = picker.querySelector(".xm-cols-count");
+    if (count) count.textContent = "(" + (boxes.length - hidden.length) + " of " + boxes.length + " shown)";
     try { localStorage.setItem("xm-cols-hidden", JSON.stringify(hidden)); } catch (e) {}
   }
   boxes.forEach(function (b) {

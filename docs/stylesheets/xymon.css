@@ -214,8 +214,13 @@ html[data-icons="accessible"] .xm-dot.clear.recent { background-image: url("../i
 .md-typeset .xm-icons img.pix { image-rendering: pixelated; }
 .md-typeset .xm-icons [hidden] { display: none; }
 .md-typeset details.xm-cols { display: inline-block; margin: 0 0 .6rem; padding: 0; border: 1px solid var(--xm-line); border-radius: 4px; box-shadow: none; font-size: .66rem; background: none; }
-.md-typeset details.xm-cols > summary { padding: .25rem .6rem; cursor: pointer; background: none; color: var(--xm-dim); }
-.md-typeset details.xm-cols > summary::before, .md-typeset details.xm-cols > summary::after { display: none; }
+.md-typeset details.xm-cols > summary { padding: .3rem .7rem; cursor: pointer; background: var(--xm-menu); color: var(--xm-fg); font-weight: 400; list-style: none; border-radius: 4px; }
+.md-typeset details.xm-cols > summary:hover { background: var(--xm-line); }
+.md-typeset details.xm-cols > summary .xm-cols-count { color: var(--xm-dim); }
+.md-typeset details.xm-cols > summary::-webkit-details-marker { display: none; }
+.md-typeset details.xm-cols > summary::after { display: none; }
+.md-typeset details.xm-cols > summary::before { content: "\25B8"; display: inline-block; position: static; width: auto; height: auto; margin-right: .4rem; background: none; -webkit-mask: none; mask: none; transform: none; transition: transform .15s; }
+.md-typeset details.xm-cols[open] > summary::before { transform: rotate(90deg); }
 .md-typeset details.xm-cols > div { display: flex; flex-wrap: wrap; gap: .3rem .9rem; padding: .3rem .6rem .5rem; }
 .md-typeset details.xm-cols label { white-space: nowrap; cursor: pointer; color: var(--xm-fg); }
 .md-typeset details.xm-cols { color: var(--xm-fg); }
